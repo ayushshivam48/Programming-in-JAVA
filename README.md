@@ -166,7 +166,7 @@ ________________________________________
 
 Java programming involves various tools that support the full development lifecycle — from writing and compiling code to testing, debugging, and deploying applications. These tools boost productivity, manage complexity, and help ensure reliability.
 
----
+________________________________________
 
 ### 🔧 1. Core Development Tools (Included in JDK)
 These are essential tools provided with the Java Development Kit (JDK):
@@ -181,7 +181,7 @@ These are essential tools provided with the Java Development Kit (JDK):
 
 🟢 **Importance**: These tools form the foundation of Java program development, from writing code to distributing it.
 
----
+________________________________________
 
 ### 💻 2. IDEs (Integrated Development Environments)
 Modern IDEs make Java programming more efficient and user-friendly.
@@ -195,7 +195,7 @@ Modern IDEs make Java programming more efficient and user-friendly.
 
 🟢 **Importance**: IDEs help you write, debug, and run Java programs with features like autocomplete, error hints, and integrated terminals.
 
----
+________________________________________
 
 ### ⚙️ 3. Build Tools
 Build tools automate tasks like compiling code, managing libraries, and packaging applications.
@@ -208,7 +208,7 @@ Build tools automate tasks like compiling code, managing libraries, and packagin
 
 🟢 **Importance**: These tools make project builds repeatable and easy, especially when many libraries and files are involved.
 
----
+________________________________________
 
 ### 🧪 4. Testing Tools
 Testing is vital to ensure your application behaves correctly.
@@ -221,7 +221,7 @@ Testing is vital to ensure your application behaves correctly.
 
 🟢 **Importance**: Helps catch bugs early and maintain code quality.
 
----
+________________________________________
 
 ### 🖥️ 5. GUI Development Tools
 Used to create desktop-based graphical user interfaces (GUIs).
@@ -233,7 +233,7 @@ Used to create desktop-based graphical user interfaces (GUIs).
 
 🟢 **Importance**: Enables you to build interactive, user-friendly applications.
 
----
+________________________________________
 
 ### 🌐 6. Web & Enterprise Tools
 Used for creating scalable web apps and enterprise software.
@@ -246,7 +246,7 @@ Used for creating scalable web apps and enterprise software.
 
 🟢 **Importance**: These tools power modern web applications and enterprise-grade systems.
 
----
+________________________________________
 
 ### 🧠 How These Tools Work in a Java Project (Step-by-Step)
 1. **Write Code** – In an IDE like IntelliJ or Eclipse  
@@ -258,7 +258,7 @@ Used for creating scalable web apps and enterprise software.
 7. **Package App** – With jar or Maven to distribute  
 8. **Deploy/Run App** – On servers like Apache Tomcat or in a JAR file  
 
----
+________________________________________
 
 ### 🧩 Summary Table
 
@@ -270,3 +270,117 @@ Used for creating scalable web apps and enterprise software.
 | Testing        | JUnit, TestNG, Mockito              | Ensure correctness                  |
 | GUI            | JavaFX, Swing                       | Build interfaces                    |
 | Web            | Spring Boot, Hibernate, Tomcat      | Web & database integration          |
+
+________________________________________
+
+## Java Applet Programming
+
+### 🧭 What is a Java Applet?
+A Java Applet is a small Java program that is embedded in a web page and runs inside a web browser using the Java plugin.
+
+⚠️ **Note**: Applets were widely used in the past for web-based interactive programs (like animations or calculators), but they are now obsolete due to modern web technologies and browser security restrictions.
+
+________________________________________
+
+### 🧱 Key Features of Java Applets
+- GUI-based Java programs that run inside browsers
+- Inherit from `java.applet.Applet` class (or `javax.swing.JApplet` for Swing-based)
+- Can display graphics, handle events, and interact with the user
+- No `main()` method — they use lifecycle methods
+
+________________________________________
+
+### 🔄 Applet Lifecycle Methods
+Java applets have predefined lifecycle methods:
+
+| Method            | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `init()`          | Called once when the applet starts — initialize resources                   |
+| `start()`         | Called each time the applet becomes visible or gains focus                  |
+| `stop()`          | Called when the applet is no longer visible                                |
+| `destroy()`       | Called when the applet is removed from memory                              |
+| `paint(Graphics g)` | Called to draw content (text, shapes, etc.) on the screen                 |
+
+________________________________________
+
+### 🧑‍💻 Example: A Simple Java Applet
+
+import java.applet.Applet;
+import java.awt.Graphics;
+
+/* <applet code="HelloApplet.class" width="300" height="100"></applet> */
+public class HelloApplet extends Applet {
+    public void paint(Graphics g) {
+        g.drawString("Hello from Java Applet!", 50, 50);
+    }
+}
+
+________________________________________
+
+### ✅ Steps to Run a Java Applet
+
+1. **Save** as `HelloApplet.java`
+2. **Compile**:
+
+   javac HelloApplet.java
+
+3.	Create an HTML file (HelloApplet.html):
+<html>
+<body>
+    <applet code="HelloApplet.class" width="300" height="100"></applet>
+</body>
+</html>
+
+4.	Run in Applet Viewer:
+appletviewer HelloApplet.html
+
+🛑 Modern browsers no longer support applets. Use `appletviewer` from the JDK for testing:
+
+appletviewer YourApplet.html
+
+________________________________________
+
+### 📋 Historical Use Cases of Java Applets
+
+- **Educational Tools**  
+  Math and physics simulations, interactive learning modules
+- **Web Utilities**  
+  Small games, calculators, and other interactive tools
+- **Visualizations**  
+  Interactive diagrams, charts, and data visualizations
+
+________________________________________
+
+### ❌ Reasons for Applet Deprecation
+
+| Issue | Impact | Modern Solution |
+|-------|--------|-----------------|
+| Java Plugin Requirement | No longer supported by browsers | Native browser technologies |
+| Security Vulnerabilities | Sandboxing limitations | Modern security frameworks |
+| Technology Obsolescence | Replaced by better alternatives | HTML5, JavaScript, WebAssembly |
+
+________________________________________
+
+### ✅ Modern Replacement Technologies
+
+| Category | Technology Stack | Key Benefits |
+|----------|------------------|--------------|
+| Desktop Applications | JavaFX, Swing | Rich GUI capabilities |
+| Web Applications | HTML5 + React/Vue | Cross-platform compatibility |
+| Backend Services | Spring Boot | Microservices architecture |
+| Animations/Graphics | Canvas/WebGL | Hardware-accelerated rendering |
+
+________________________________________
+
+### 📌 Java Applet Technical Summary
+
+| Aspect | Details | Current Status |
+|--------|---------|----------------|
+| Base Class | `java.applet.Applet`<br>`javax.swing.JApplet` | Removed in Java 17 |
+| Lifecycle Methods | `init()`, `start()`, `stop()`,<br>`destroy()`, `paint()` | Legacy only |
+| Execution Model | Browser plugin | Discontinued |
+| Modern Path | Java Web Start (also deprecated) | Self-contained apps |
+
+> **Important Note**: All applet-related APIs were removed in Java SE 17 (JEP 398). For historical reference only.
+
+________________________________________
