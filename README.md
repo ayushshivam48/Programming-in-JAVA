@@ -309,6 +309,7 @@ import java.applet.Applet;
 import java.awt.Graphics;
 
 /* <applet code="HelloApplet.class" width="300" height="100"></applet> */
+
 public class HelloApplet extends Applet {
     public void paint(Graphics g) {
         g.drawString("Hello from Java Applet!", 50, 50);
@@ -403,6 +404,7 @@ ________________________________________
 ### 🧑‍💻 Java Example: Encapsulation
 
 public class Student {
+   
     // Private data members
     private String name;
     private int age;
@@ -437,6 +439,7 @@ ________________________________________
 ### Usage Example:
 
 public class Main {
+    
     public static void main(String[] args) {
         Student s = new Student();
         s.setName("Anjali");
