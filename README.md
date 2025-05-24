@@ -384,3 +384,102 @@ ________________________________________
 > **Important Note**: All applet-related APIs were removed in Java SE 17 (JEP 398). For historical reference only.
 
 ________________________________________
+
+## Encapsulation in Java
+
+### 🔐 What is Encapsulation?
+Encapsulation is the concept of wrapping data (variables) and code (methods) together as a single unit — like a capsule. It restricts direct access to some of the object's components, which is useful for protecting data from unwanted changes.
+
+✅ **Analogy**: Think of it like a capsule of medicine — everything is sealed inside and accessed in a controlled way.
+
+________________________________________
+
+### 🧠 Key Concepts of Encapsulation in Java:
+1. **Private Variables**: The class variables are declared as private
+2. **Public Getter and Setter Methods**: These methods are used to read and update private variables
+
+________________________________________
+
+### 🧑‍💻 Java Example: Encapsulation
+
+public class Student {
+    // Private data members
+    private String name;
+    private int age;
+
+    // Public getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Public setter for name
+    public void setName(String newName) {
+        name = newName;
+    }
+
+    // Getter for age
+    public int getAge() {
+        return age;
+    }
+
+    // Setter for age with validation
+    public void setAge(int newAge) {
+        if(newAge > 0) {
+            age = newAge;
+        } else {
+            System.out.println("Invalid age.");
+        }
+    }
+}
+
+________________________________________
+
+### Usage Example:
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.setName("Anjali");
+        s.setAge(20);
+
+        System.out.println("Name: " + s.getName());
+        System.out.println("Age: " + s.getAge());
+    }
+}
+
+________________________________________
+
+### 🎯 Why is Encapsulation Important?
+
+| Benefit           | Explanation                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| ✅ Data Hiding    | Prevents unauthorized access and modification of data                        |
+| ✅ Security       | Sensitive information is protected inside the class                         |
+| ✅ Code Flexibility | You can change code internally without affecting external code              |
+| ✅ Control        | You can add validation logic in setter methods                              |
+| ✅ Reusability    | Easily maintain and reuse encapsulated classes in other programs            |
+
+________________________________________
+
+### 🏁 Real-Life Example
+**ATM Machine Analogy**:
+- Your account balance is private (hidden data)
+- You enter your PIN to access it (public method)
+- The system validates before granting access (controlled access)
+
+*This demonstrates encapsulation in real-world systems!*
+
+________________________________________
+
+### 🔁 Summary of Key Terms
+
+| Term             | Definition                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| Encapsulation    | Bundling data and methods that operate on that data within a single unit   |
+| Data Hiding      | Restricting direct access to an object's internal representation          |
+| Private          | Access modifier that restricts visibility to the containing class only    |
+| Getter/Setter    | Public methods that provide controlled access to private fields           |
+
+> **Note**: Encapsulation is one of the four fundamental OOP concepts, along with inheritance, polymorphism, and abstraction.
+
+________________________________________
