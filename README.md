@@ -570,7 +570,7 @@ thread.start();
    - Setup: Requires Java Extension Pack
 
 
-# Example: Compiling and running Java
+#### Example: Compiling and running Java
 javac Main.java
 java Main
 
@@ -596,7 +596,7 @@ java Main
 
 ---
 
-##3 🔹 9. Java Career Pathways
+### 🔹 9. Java Career Pathways
 
 #### In-Demand Roles (2024)
 | Position | Average Salary (US) | Key Skills |
