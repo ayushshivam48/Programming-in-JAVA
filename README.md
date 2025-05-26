@@ -594,7 +594,7 @@ java Main
 - 💡 **Java User Groups (JUGs)** - 500+ active chapters worldwide
 - 🛠️ **OpenJDK** - Community-driven Java development
 
----
+________________________________________
 
 ### 🔹 9. Java Career Pathways
 
@@ -617,7 +617,7 @@ java Main
 3. Spring Professional Certification
 4. AWS Certified Developer (Java focus)
 
----
+________________________________________
 
 ### 🚀 Java in 2024: Why It Matters
 
@@ -633,3 +633,92 @@ java Main
 - Gradual transition to Project Loom (virtual threads)
 - Increased adoption in edge computing
 - Strong position in quantum computing research
+
+________________________________________
+
+## Java Static Scope Rules  
+
+### 🔷 What is "Static" in Java?  
+In Java, the `static` keyword means that a member belongs to the class rather than to instances of the class. Static elements are shared across all objects of that class.  
+
+---
+
+### ✅ Java Static Scope Rules  
+
+#### 1. Static Variables (Class Variables)  
+`class Example {`  
+`    static int count = 0;  // static variable`  
+`    Example() {`  
+`        count++;`  
+`    }`  
+`}`  
+
+- Declared using the `static` keyword  
+- Shared among all class instances  
+- Initialized once at class loading  
+
+#### 2. Static Methods  
+`class Test {`  
+`    static int x = 10;`  
+`    static void show() {`  
+`        System.out.println("x = " + x);  // Allowed`  
+`        // System.out.println("y = " + y);  // ❌ Not allowed`  
+`    }`  
+`    int y = 5;`  
+`}`  
+
+- Belong to the class, not the object  
+- Can access only static data directly  
+- Cannot use `this` keyword  
+
+#### 3. Static Blocks  
+`class Hello {`  
+`    static {`  
+`        System.out.println("Static block executed");`  
+`    }`  
+`    public static void main(String[] args) {`  
+`        System.out.println("Main method executed");`  
+`    }`  
+`}`  
+
+- Executes when class is loaded  
+- Runs before main method  
+
+#### 4. Calling Rules  
+- Call static members using class name:  
+`MyClass.display();  // ✅ Preferred`  
+- Can use object reference (but not recommended):  
+`obj.display();      // ⚠️ Allowed`  
+
+---
+
+### 📌 Summary Table  
+
+| Feature              | Static | Non-Static |  
+|----------------------|--------|------------|  
+| Belongs to class     | ✅     | ❌         |  
+| Needs object access  | ❌     | ✅         |  
+| Can use `this`       | ❌     | ✅         |  
+| Access static members| ✅     | ✅         |  
+| Access instance members | ❌   | ✅         |  
+
+---
+
+### 🧠 Real-Life Example  
+`class Student {`  
+`    static String college = "ABC University";`  
+`    String name;`  
+`    Student(String name) {`  
+`        this.name = name;`  
+`    }`  
+`    void display() {`  
+`        System.out.println(name + " studies at " + college);`  
+`    }`  
+`}`  
+
+Key Points:  
+- `college` is shared by all students (static)  
+- `name` is unique per student (non-static)  
+- Static members save memory when shared data is needed
+
+________________________________________
