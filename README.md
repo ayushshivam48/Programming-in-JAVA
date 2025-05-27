@@ -722,3 +722,205 @@ Key Points:
 - Static members save memory when shared data is needed
 
 ________________________________________
+
+
+## Inheritance  
+
+### 🔷 What is Inheritance?  
+Inheritance is a mechanism in Java where one class (child/subclass) can inherit the properties and behaviors (fields and methods) of another class (parent/superclass).  
+
+**Benefits:**  
+- Promotes code reusability  
+- Makes code easier to maintain and extend  
+- Enables hierarchical classifications  
+
+---
+
+### 🔹 Syntax of Inheritance  
+```
+class Superclass {
+    // fields and methods
+}
+class Subclass extends Superclass {
+    // additional fields and methods
+}
+```
+
+---
+
+### 🔍 Example  
+```
+class Vehicle {
+    void startEngine() {
+        System.out.println("Engine started");
+    }
+}
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Car is driving");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.startEngine();  // Inherited method
+        myCar.drive();        // Child method
+    }
+}
+```
+
+**Output:**  
+```
+Engine started  
+Car is driving  
+```
+
+---
+
+### 🏷️ Types of Inheritance in Java  
+
+#### 1. Single Inheritance  
+One class inherits from one superclass.  
+
+**Example:**  
+```
+class Animal {
+    void eat() {
+        System.out.println("Animal eats food");
+    }
+}
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+```
+
+#### 2. Multilevel Inheritance  
+A class is derived from a class that is also derived from another class.  
+
+**Example:**  
+```
+class Grandparent {
+    void heritage() {
+        System.out.println("Grandparent's heritage");
+    }
+}
+class Parent extends Grandparent {
+    void culture() {
+        System.out.println("Parent's culture");
+    }
+}
+class Child extends Parent {
+    void modernStyle() {
+        System.out.println("Child's modern style");
+    }
+}
+```
+
+#### 3. Hierarchical Inheritance  
+Multiple classes inherit from the same parent class.  
+
+**Example:**  
+```
+class Animal {
+    void eat() {
+        System.out.println("Animal eats");
+    }
+}
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Cat meows");
+    }
+}
+```
+
+#### 4. Multiple Inheritance (Through Interfaces Only)  
+Java supports multiple inheritance using interfaces.  
+
+**Example:**  
+```
+interface Printable {
+    void print();
+}
+interface Showable {
+    void show();
+}
+class Document implements Printable, Showable {
+    public void print() {
+        System.out.println("Printing document...");
+    }
+    public void show() {
+        System.out.println("Showing document...");
+    }
+}
+```
+
+#### 5. Hybrid Inheritance  
+Combination of inheritance types, achieved via interfaces.  
+
+**Example:**  
+```
+interface A {
+    void methodA();
+}
+interface B extends A {
+    void methodB();
+}
+class C {
+    void methodC() {
+        System.out.println("Class C method");
+    }
+}
+class D extends C implements B {
+    public void methodA() {
+        System.out.println("Method A from interface A");
+    }
+    public void methodB() {
+        System.out.println("Method B from interface B");
+    }
+}
+```
+
+---
+
+### ⚠️ Why Java Doesn't Support Multiple Inheritance with Classes  
+Java avoids multiple inheritance with classes to prevent the Diamond Problem.  
+
+**Problem Example:**  
+```
+class A {
+    void show() { System.out.println("A"); }
+}
+class B {
+    void show() { System.out.println("B"); }
+}
+// class C extends A, B { } // Not allowed!
+```
+
+**Solution:** Use interfaces instead!
+
+---
+
+### 📌 Summary Table  
+
+| Inheritance Type | Supported in Java? | Example |
+|-----------------|-------------------|---------|
+| Single Inheritance | ✅ Yes | class B extends A |
+| Multilevel Inheritance | ✅ Yes | C → B → A |
+| Hierarchical Inheritance | ✅ Yes | B, C extends A |
+| Multiple Inheritance (Classes) | ❌ No | Use Interfaces Instead |
+| Hybrid Inheritance | ✅ Via Interfaces | Mix of all above |
+
+---
+
+### 🧠 Key Benefits of Inheritance  
+- ✅ Code reuse  
+- ✅ Method overriding for custom behavior  
+- ✅ Supports polymorphism  
+- ✅ Easier maintainability and scalability
