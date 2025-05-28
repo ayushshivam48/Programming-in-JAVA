@@ -924,3 +924,113 @@ class B {
 - ✅ Method overriding for custom behavior  
 - ✅ Supports polymorphism  
 - ✅ Easier maintainability and scalability
+
+________________________________________
+
+## Information Hiding  
+
+### 🔒 What is Information Hiding?  
+Information Hiding is one of the core principles of object-oriented programming (OOP). It means restricting access to the internal details of an object and only exposing what is necessary.  
+
+**Benefits:**  
+- Protects the integrity of the data  
+- Reduces system complexity  
+- Improves maintainability and flexibility  
+
+---
+
+### 🧠 Why is it Important?  
+- Prevents unauthorized access to data  
+- Makes debugging and testing easier  
+- Encourages modularity - each part can be understood independently  
+- Reduces interdependency between components  
+
+---
+
+### ⚙️ How is it Achieved in Java?  
+Information hiding in Java is achieved using:  
+- **Access Modifiers**: `private`, `protected`, `public`, and `default`  
+- **Encapsulation**: Wrapping data and methods in a single unit (class), making fields private while providing getters/setters  
+
+---
+
+### ✅ Example  
+
+```
+class Employee {
+    // Private data members (hidden from outside)
+    private String name;
+    private double salary;
+
+    // Constructor
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Public getter method (controlled access)
+    public String getName() {
+        return name;
+    }
+
+    // Public setter method (controlled modification)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        if (salary > 0) {
+            this.salary = salary;
+        } else {
+            System.out.println("Invalid salary amount!");
+        }
+    }
+}
+
+public class Company {
+    public static void main(String[] args) {
+        Employee emp = new Employee("Alice", 50000);
+
+        // Accessing private fields using public methods
+        System.out.println("Name: " + emp.getName());
+        System.out.println("Salary: " + emp.getSalary());
+
+        // Trying to update salary
+        emp.setSalary(55000);
+        System.out.println("Updated Salary: " + emp.getSalary());
+
+        // Invalid update
+        emp.setSalary(-1000); // Will trigger validation
+    }
+}
+```
+
+**Output:**  
+```
+Name: Alice  
+Salary: 50000.0  
+Updated Salary: 55000.0  
+Invalid salary amount!
+```
+
+---
+
+### 🔍 Summary  
+
+| Feature | Description |  
+|---------|-------------|  
+| Access Modifiers | Limit visibility of fields/methods |  
+| Encapsulation | Combines data + methods; hides internal details |  
+| Getters/Setters | Allow controlled access to private data |  
+
+Key takeaways:  
+- Always make fields `private` by default  
+- Expose only what's necessary through public methods  
+- Use setters to validate data before assignment  
+- Information hiding makes your code more robust and maintainable
+
+________________________________________
