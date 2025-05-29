@@ -1121,3 +1121,156 @@ This organization makes teamwork and maintenance more efficient!
 2. Follow reverse domain naming convention (e.g., `com.company.project`)
 3. Use `import` statements to access package contents
 4. Keep related classes together in logical packages
+
+________________________________________
+
+## Interface in Java
+
+### 🔍 What is an Interface?
+An interface in Java is a blueprint of a class that contains abstract methods and constants. It specifies behavior that implementing classes must define.
+
+**Key Points:**
+- Contains abstract methods (no body)
+- Can have constants (public, static, final)
+- Cannot be instantiated directly
+- Supports multiple inheritance
+
+---
+
+### 🚨 Why Use Interfaces?
+1. **Achieve abstraction** - Hide implementation details
+2. **Multiple inheritance** - Class can implement multiple interfaces
+3. **Standard behavior** - Define common contracts
+4. **Loose coupling** - Reduce dependencies between components
+
+---
+
+### ✨ Key Characteristics
+
+| Feature | Description |
+|---------|-------------|
+| Abstract methods | Must be implemented by classes |
+| Default methods | Can have implementation (Java 8+) |
+| Static methods | Called via interface name |
+| No constructors | Cannot be instantiated |
+| Multiple inheritance | Class can implement multiple interfaces |
+
+---
+
+### 🔧 Syntax
+```
+interface InterfaceName {
+    // Constant
+    int VALUE = 100;
+
+    // Abstract method
+    void methodName();
+
+    // Default method
+    default void show() {
+        System.out.println("Default method");
+    }
+
+    // Static method
+    static void display() {
+        System.out.println("Static method");
+    }
+}
+```
+
+---
+
+### 🧪 Code Example
+
+#### 🔹 Vehicle Interface
+```
+interface Vehicle {
+    void start(); // Abstract method
+    void stop();  // Abstract method
+
+    default void fuelType() {
+        System.out.println("Uses petrol");
+    }
+
+    static void companyInfo() {
+        System.out.println("AutoMobiles Ltd.");
+    }
+}
+```
+
+#### 🔹 Car Implementation
+```
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starting...");
+    }
+
+    public void stop() {
+        System.out.println("Car stopping");
+    }
+    
+    @Override
+    public void fuelType() {
+        System.out.println("Uses diesel");
+    }
+}
+```
+
+#### 🔹 Main Class
+```
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        myCar.start();
+        myCar.stop();
+        myCar.fuelType();
+        Vehicle.companyInfo();
+    }
+}
+```
+
+**Output:**
+```
+Car starting...
+Car stopping
+Uses diesel
+AutoMobiles Ltd.
+```
+
+---
+
+### 🧠 Real-life Example
+```
+interface USBDevice {
+    void connect();
+}
+
+class Printer implements USBDevice {
+    public void connect() {
+        System.out.println("Printer connected");
+    }
+}
+
+class Scanner implements USBDevice {
+    public void connect() {
+        System.out.println("Scanner connected");
+    }
+}
+```
+
+---
+
+### 🧱 Interface vs Abstract Class
+
+| Feature | Abstract Class | Interface |
+|---------|---------------|-----------|
+| Inheritance | Single | Multiple |
+| Methods | Can have implementation | Abstract/default/static |
+| Variables | Any type | Only public static final |
+| Instantiation | Not allowed | Not allowed |
+
+**Key Takeaways:**
+- Use interfaces for defining contracts
+- Default methods allow backward compatibility
+- Static methods provide utility functions
+- Interfaces enable polymorphic behavior
