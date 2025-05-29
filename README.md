@@ -1034,3 +1034,90 @@ Key takeaways:
 - Information hiding makes your code more robust and maintainable
 
 ________________________________________
+
+## Packages in Java
+
+### 🔍 What is a Package?
+A package in Java is a namespace that organizes classes and interfaces in a logical manner. Think of it like folders on your computer that keep related files together.
+
+**Key Benefits:**
+- Avoids class name conflicts
+- Manages access control
+- Makes code maintenance easier
+
+---
+
+### 🧱 Types of Packages
+
+1. **Built-in Packages**  
+   Java provides many ready-to-use packages:
+   - `java.util` → contains utility classes like ArrayList, HashMap
+   - `java.io` → classes for input/output operations
+   - `java.lang` → fundamental classes (automatically imported)
+
+2. **User-defined Packages**  
+   You can create your own packages to group related classes
+
+---
+
+### ✅ How to Create and Use a Package
+
+#### Step 1: Create a Package
+```
+package MyPackage;
+
+public class Addition {
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+(Save as `MyPackage/Addition.java`)
+
+#### Step 2: Use the Package
+```
+import MyPackage.Addition;
+
+public class Main {
+    public static void main(String[] args) {
+        Addition obj = new Addition();
+        int result = obj.add(5, 10);
+        System.out.println("Sum: " + result);
+    }
+}
+```
+(Save as `Main.java`)
+
+**Compilation & Execution:**
+```
+javac MyPackage/Addition.java
+javac Main.java
+java Main
+```
+
+---
+
+### 🛠️ Key Benefits of Using Packages
+
+| Benefit | Description |
+|---------|-------------|
+| Namespace Management | Prevents class name conflicts |
+| Modularity | Code is better organized and reusable |
+| Access Control | Enables protected and default access |
+| Easier Maintenance | Code is simpler to navigate and update |
+
+---
+
+### 🧠 Real-Life Example
+**Banking Application Structure:**
+- `bank.customers` → Customer account management
+- `bank.transactions` → Deposit/withdrawal processing  
+- `bank.employees` → Staff management systems  
+
+This organization makes teamwork and maintenance more efficient!
+
+**Key Takeaways:**
+1. Always declare packages at the top of your Java files
+2. Follow reverse domain naming convention (e.g., `com.company.project`)
+3. Use `import` statements to access package contents
+4. Keep related classes together in logical packages
