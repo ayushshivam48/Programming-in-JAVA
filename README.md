@@ -1275,8 +1275,7 @@ class Scanner implements USBDevice {
 - Static methods provide utility functions
 - Interfaces enable polymorphic behavior
 
-
-
+________________________________________
 
 ## Experience Handling
 
@@ -1430,4 +1429,5 @@ File reading operation completed.
 - Use `throw` to manually throw exceptions and `throws` to declare them in methods.
 - Checked exceptions require explicit handling (e.g., IOException), while unchecked exceptions don't.
 - Always make sure to close resources (like files or connections) in the `finally` block to avoid resource leaks.
-```
+
+________________________________________
