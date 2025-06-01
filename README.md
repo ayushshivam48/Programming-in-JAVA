@@ -1471,6 +1471,7 @@ In this method, a class extends the Thread class and overrides its run() method,
 
 **Example: Extending the Thread class**
 
+```java
 class MyThread extends Thread {
     public void run() {
         System.out.println(Thread.currentThread().getId() + " is running");
@@ -1485,6 +1486,7 @@ class MyThread extends Thread {
     }
 }
 
+```
 
 **Explanation:**
 •	The run() method contains the task to be executed by the thread.
@@ -1492,10 +1494,10 @@ class MyThread extends Thread {
 •	Thread.currentThread().getId() gives the ID of the current thread.
 
 **Output:**
-
+```
 1 is running
 2 is running
-
+```
 
 ---
 
@@ -1504,6 +1506,7 @@ In this approach, a class implements the Runnable interface and provides an impl
 
 **Example: Implementing the Runnable interface**
 
+```java
 class MyRunnable implements Runnable {
     public void run() {
         System.out.println(Thread.currentThread().getId() + " is running");
@@ -1519,17 +1522,17 @@ class MyRunnable implements Runnable {
         t2.start(); // Start the second thread
     }
 }
-
+```
 
 **Explanation:**
 •	The Runnable interface provides a single method, run(), which contains the code to be executed by the thread.
 •	The Thread class is used to start the thread and associate the Runnable object with it.
 
 **Output:**
-
+```
 1 is running
 2 is running
-
+```
 
 ---
 
@@ -1551,6 +1554,7 @@ When multiple threads access shared resources concurrently, it can lead to race 
 
 **Example: Synchronized Method**
 
+```java
 class Counter {
     private int count = 0;
 
@@ -1593,15 +1597,16 @@ public class Main {
     }
 }
 
+```
 
 **Explanation:**
 •	synchronized ensures that the increment() method is accessed by only one thread at a time.
 •	join() ensures that the main thread waits for both threads to complete before printing the final result.
 
 **Output:**
-
+```
 Final count: 2000
-
+```
 
 ---
 
@@ -1622,10 +1627,15 @@ Final count: 2000
 ---
 
 ### 🧾 Summary of Multithreading Concepts
+
 •	Thread: The smallest unit of execution.
+
 •	Runnable Interface and Thread Class: Two ways to create threads.
+
 •	Thread Lifecycle: Includes New, Runnable, Blocked, Waiting, and Terminated states.
+
 •	Synchronization: Ensures thread safety when multiple threads access shared resources.
+
 •	Thread Pooling and Executor Framework: Efficient management of multiple threads.
 
 ________________________________________
