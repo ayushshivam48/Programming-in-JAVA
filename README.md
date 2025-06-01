@@ -1431,3 +1431,201 @@ File reading operation completed.
 - Always make sure to close resources (like files or connections) in the `finally` block to avoid resource leaks.
 
 ________________________________________
+
+
+## Multithreading
+
+Multithreading is a concurrent execution technique that allows the CPU to execute multiple threads (smaller units of a process) simultaneously. This helps in improving the efficiency and performance of a program, especially for tasks that can be performed concurrently.
+
+---
+
+### 🔍 What is a Thread?
+A thread is the smallest unit of execution within a process. Every Java application has at least one thread — the main thread, but additional threads can be created to perform parallel tasks.
+
+---
+
+### 🚀 Why Use Multithreading?
+1.	Improved Performance: By executing multiple tasks concurrently, the overall performance of the application improves, especially in a multi-core processor environment.
+2.	Resource Utilization: Multithreading helps in utilizing CPU resources more effectively.
+3.	Better User Experience: In GUI applications, multithreading can keep the user interface responsive by handling background tasks concurrently.
+4.	Faster Execution: Tasks like file processing, image manipulation, etc., can be processed in parallel.
+
+---
+
+### 🧑‍💻 Java Threading Basics
+•	Main Thread: Every Java application has one main thread that starts the execution of the program.
+•	Thread Class: The Thread class in Java provides a way to create and manage threads.
+•	Runnable Interface: Another way to create threads in Java is by implementing the Runnable interface.
+
+---
+
+### 🧑‍💻 Creating Threads in Java
+There are two ways to create threads:
+1.	By Extending the Thread class
+2.	By Implementing the Runnable interface
+
+---
+
+#### Method 1: Extending the Thread Class
+In this method, a class extends the Thread class and overrides its run() method, which contains the code that will be executed by the thread.
+
+**Example: Extending the Thread class**
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println(Thread.currentThread().getId() + " is running");
+    }
+
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start(); // Start the thread
+
+        MyThread t2 = new MyThread();
+        t2.start(); // Start the second thread
+    }
+}
+
+
+**Explanation:**
+•	The run() method contains the task to be executed by the thread.
+•	start() creates a new thread of execution and invokes the run() method.
+•	Thread.currentThread().getId() gives the ID of the current thread.
+
+**Output:**
+
+1 is running
+2 is running
+
+
+---
+
+#### Method 2: Implementing the Runnable Interface
+In this approach, a class implements the Runnable interface and provides an implementation for the run() method. Then, a Thread object is created and passed the Runnable object.
+
+**Example: Implementing the Runnable interface**
+
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println(Thread.currentThread().getId() + " is running");
+    }
+
+    public static void main(String[] args) {
+        MyRunnable myRunnable = new MyRunnable();
+
+        Thread t1 = new Thread(myRunnable);
+        t1.start(); // Start the thread
+
+        Thread t2 = new Thread(myRunnable);
+        t2.start(); // Start the second thread
+    }
+}
+
+
+**Explanation:**
+•	The Runnable interface provides a single method, run(), which contains the code to be executed by the thread.
+•	The Thread class is used to start the thread and associate the Runnable object with it.
+
+**Output:**
+
+1 is running
+2 is running
+
+
+---
+
+### 🌟 Thread Life Cycle
+A thread in Java goes through various states during its life cycle:
+1.	New: A thread is in the "new" state when it is created but not yet started.
+2.	Runnable: After invoking start(), the thread is moved to the runnable state. It's eligible for CPU time, but not necessarily running.
+3.	Blocked: A thread enters this state when it's waiting for resources that are being used by another thread.
+4.	Waiting: A thread enters this state when it's waiting for another thread to perform a particular action.
+5.	Terminated: A thread enters the terminated state when it has finished its execution.
+
+---
+
+### 🚦 Thread Synchronization
+When multiple threads access shared resources concurrently, it can lead to race conditions, where the outcome depends on the timing of the thread execution. To avoid this, synchronization is used.
+
+**Why Use Synchronization?**
+•	Synchronization ensures that only one thread can access a resource at a time, preventing data inconsistency and errors.
+
+**Example: Synchronized Method**
+
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int getCount() {
+        return count;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join(); // Wait for t1 to finish
+            t2.join(); // Wait for t2 to finish
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Final count: " + counter.getCount());
+    }
+}
+
+
+**Explanation:**
+•	synchronized ensures that the increment() method is accessed by only one thread at a time.
+•	join() ensures that the main thread waits for both threads to complete before printing the final result.
+
+**Output:**
+
+Final count: 2000
+
+
+---
+
+### 💡 Advanced Concepts
+1.	Thread Priority: Threads can be given different priorities using setPriority(int priority) to influence the order of thread execution (although Java's thread scheduler may override this).
+2.	Thread Pool: Instead of creating threads manually, you can use a Thread Pool (via the Executor framework) to manage threads efficiently.
+3.	Daemon Threads: A thread that runs in the background and does not prevent the program from exiting. Use setDaemon(true) to mark a thread as a daemon thread.
+4.	Deadlock: A condition where two or more threads are blocked forever due to waiting for each other to release resources. It can be avoided by using proper synchronization and resource allocation strategies.
+
+---
+
+### 🌍 Real-World Applications of Multithreading
+1.	Web Servers: Handling multiple user requests simultaneously.
+2.	Image Processing: Performing complex calculations on different parts of an image simultaneously.
+3.	Database Query Processing: Running parallel queries to enhance performance.
+4.	Games and GUI Applications: Updating user interfaces while processing background tasks.
+
+---
+
+### 🧾 Summary of Multithreading Concepts
+•	Thread: The smallest unit of execution.
+•	Runnable Interface and Thread Class: Two ways to create threads.
+•	Thread Lifecycle: Includes New, Runnable, Blocked, Waiting, and Terminated states.
+•	Synchronization: Ensures thread safety when multiple threads access shared resources.
+•	Thread Pooling and Executor Framework: Efficient management of multiple threads.
+
+________________________________________
