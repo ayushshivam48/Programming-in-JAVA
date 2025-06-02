@@ -1674,7 +1674,7 @@ o	FileInputStream: Reads data from files in byte form.
 o	FileOutputStream: Writes data to files in byte form.
 
 **Example of Byte Streams (Reading and Writing a Binary File)**
-```
+```java
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -1709,7 +1709,7 @@ o	FileReader: Reads character data from a file.
 o	FileWriter: Writes character data to a file.
 
 **Example of Character Streams (Reading and Writing Text Files)**
-```
+```java
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -1765,7 +1765,7 @@ Buffered streams are used to optimize the performance of I/O operations by reduc
 •	BufferedWriter: Used to write text to a character-based stream.
 
 **Example of Buffered Reader and Writer:**
-```
+```java
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -1803,7 +1803,7 @@ Object streams allow reading and writing of Java objects (binary data). This is 
 •	Deserialization: The process of converting the stream of bytes back into an object.
 
 **Example of Serialization and Deserialization:**
-```
+```java
 import java.io.*;
 
 class Employee implements Serializable {
