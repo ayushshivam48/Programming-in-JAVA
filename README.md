@@ -1649,28 +1649,45 @@ I/O Streams in Java refer to a mechanism that facilitates reading from and writi
 
 ### 📚 What is I/O Stream?
 An I/O stream is a sequence of data. There are two types of streams in Java:
+
 1.	Input Stream: For reading data.
+
 2.	Output Stream: For writing data.
+
 Streams can either be byte-oriented or character-oriented, depending on the type of data (binary or text) they handle.
 
 ---
 
 ### 🧑‍💻 Types of Streams in Java
 Java provides two main categories of streams:
+
+
 1.	Byte Streams:
+
 o	Used for handling raw binary data.
+
 o	Classes: InputStream, OutputStream, FileInputStream, FileOutputStream, etc.
+
+
 2.	Character Streams:
+
 o	Used for handling text (character-based data).
+
 o	Classes: Reader, Writer, FileReader, FileWriter, etc.
 
 ---
 
 ### 📊 Byte Streams
 Byte streams are used to read and write binary data (like image files, audio files, or any non-textual content).
+
+
 •	InputStream: Used for reading bytes of data.
+
 o	FileInputStream: Reads data from files in byte form.
+
+
 •	OutputStream: Used for writing bytes of data.
+
 o	FileOutputStream: Writes data to files in byte form.
 
 **Example of Byte Streams (Reading and Writing a Binary File)**
@@ -1703,9 +1720,15 @@ public class ByteStreamExample {
 
 ### 📄 Character Streams
 Character streams are specifically designed for handling text data (e.g., reading and writing text files). These streams convert the characters into bytes using a particular encoding scheme (like UTF-8 or ASCII).
+
+
 •	Reader: Used for reading characters.
+
 o	FileReader: Reads character data from a file.
+
+
 •	Writer: Used for writing characters.
+
 o	FileWriter: Writes character data to a file.
 
 **Example of Character Streams (Reading and Writing Text Files)**
@@ -1740,28 +1763,49 @@ public class CharacterStreamExample {
 ---
 
 ### 🔄 I/O Stream Classes and Methods
+
 1.	InputStream Class:
+
 o	int read(): Reads the next byte of data.
+
 o	int read(byte[] b): Reads up to b.length bytes of data into an array.
+
 o	void close(): Closes the stream.
+
+
 2.	OutputStream Class:
+
 o	void write(int b): Writes the specified byte to the stream.
+
 o	void write(byte[] b): Writes the specified byte array to the stream.
+
 o	void close(): Closes the stream.
+
+
 3.	Reader Class:
+
 o	int read(): Reads a single character.
+
 o	int read(char[] cbuf): Reads characters into an array.
+
 o	void close(): Closes the reader.
+
+
 4.	Writer Class:
+
 o	void write(int c): Writes a single character.
+
 o	void write(char[] cbuf): Writes a character array.
+
 o	void close(): Closes the writer.
 
 ---
 
 ### 🧩 Buffered Streams (BufferedReader, BufferedWriter)
 Buffered streams are used to optimize the performance of I/O operations by reducing the number of reads and writes. The buffer is a temporary storage area in memory that allows for faster I/O operations.
+
 •	BufferedReader: Used to read text from a character-based stream.
+
 •	BufferedWriter: Used to write text to a character-based stream.
 
 **Example of Buffered Reader and Writer:**
@@ -1799,7 +1843,9 @@ public class BufferedStreamExample {
 
 ### 🧑‍💻 Object Streams (Serialization and Deserialization)
 Object streams allow reading and writing of Java objects (binary data). This is achieved through serialization and deserialization.
+
 •	Serialization: The process of converting an object into a stream of bytes.
+
 •	Deserialization: The process of converting the stream of bytes back into an object.
 
 **Example of Serialization and Deserialization:**
@@ -1844,16 +1890,23 @@ public class ObjectStreamExample {
 ---
 
 ### 💡 Additional I/O Stream Classes
+
 •	DataInputStream and DataOutputStream: Used for reading and writing primitive data types (e.g., int, float, double, etc.).
+
 •	PrintWriter: Used to print formatted representations of objects to a text-output stream.
+
 •	RandomAccessFile: Allows reading from and writing to a file at a specific location (random access).
 
 ---
 
 ### 🧑‍💻 Summary
+
 •	Byte Streams handle raw binary data, while Character Streams handle text data.
+
 •	Buffered Streams enhance I/O performance by using a buffer.
+
 •	Object Streams are used for serializing and deserializing Java objects.
+
 •	Java provides a wide range of I/O classes, each designed for different types of data processing and storage operations.
 
 ________________________________________
