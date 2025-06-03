@@ -1911,4 +1911,163 @@ public class ObjectStreamExample {
 
 ________________________________________
 
+
+## Applet Programming
+Java applets are small applications that can be embedded in web pages. These programs are written in Java and are executed within a web browser or an applet viewer. While applets were once commonly used for adding interactive content to web pages, they have become obsolete with the rise of newer technologies like HTML5, JavaScript, and CSS. However, understanding applets can still be useful for legacy systems.
+
+---
+
+📚 **What is a Java Applet?**  
+A Java applet is a special kind of Java program that is designed to be embedded within a web page. It runs in the context of a web browser and can provide dynamic, interactive content such as animations, games, and real-time data updates.  
+
+- **Applet Life Cycle:** Applets have their own life cycle, which is managed by the browser or applet viewer. The life cycle consists of methods like `init()`, `start()`, `stop()`, and `destroy()`.  
+
+---
+
+🧑‍💻 **How Java Applet Works:**  
+- The applet is embedded in an HTML page using the `<applet>` tag.  
+- The Java Runtime Environment (JRE) is used to execute the applet.  
+- The applet is initialized, started, stopped, and destroyed based on user interaction with the webpage or the browser.  
+
+---
+
+🔄 **Applet Life Cycle Methods**  
+The life cycle of a Java applet includes several important methods. These methods are called by the browser or applet viewer when the applet is run, stopped, or removed.  
+
+1. **init():**  
+   - Called once when the applet is first loaded.  
+   - Used to set up resources such as images or initial data.  
+
+2. **start():**  
+   - Called after `init()`, or whenever the applet is made visible again.  
+   - Used to start animations, threads, or other activities.  
+
+3. **stop():**  
+   - Called when the applet is no longer visible or needs to be paused.  
+   - Used to stop animations or threads.  
+
+4. **destroy():**  
+   - Called before the applet is destroyed or the browser is closed.  
+   - Used to release resources or save data before the applet is removed.  
+
+5. **paint(Graphics g):**  
+   - Called whenever the applet needs to redraw its content.  
+   - Used to display graphical content on the applet's window.  
+
+---
+
+🧑‍💻 **Basic Example of a Java Applet:**  
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class HelloWorldApplet extends Applet {
+    // The init method is called once when the applet is loaded
+    public void init() {
+        setBackground(java.awt.Color.CYAN);  // Set background color
+    }
+
+    // The paint method is called whenever the applet needs to be redrawn
+    public void paint(Graphics g) {
+        g.drawString("Hello, World!", 20, 30);  // Display text on the applet window
+    }
+}
+```
+
+📝 **Explanation of the Example:**  
+- `HelloWorldApplet` is a subclass of `Applet`.  
+- `init()` is used to set the background color of the applet.  
+- `paint(Graphics g)` is used to display the string `"Hello, World!"` at the specified coordinates `(20, 30)`.  
+
+---
+
+📊 **HTML Code to Embed the Applet:**  
+You need an HTML page to embed the applet. Here's how you can do that:  
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Applet Example</title>
+</head>
+<body>
+    <h1>Java Applet Example</h1>
+    <applet code="HelloWorldApplet.class" width="300" height="300">
+        Your browser does not support Java Applets.
+    </applet>
+</body>
+</html>
+```
+
+📝 **Explanation of the HTML Code:**  
+- The `<applet>` tag specifies the location of the compiled Java applet file (`HelloWorldApplet.class`).  
+- `width` and `height` set the size of the applet display area.  
+- The text `"Your browser does not support Java Applets."` is displayed for browsers that don't support Java applets.  
+
+---
+
+🧑‍💻 **Java Applet with Interactivity:**  
+Here's an example of a Java applet with a simple interactive component—a button.  
+```java
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ButtonApplet extends Applet {
+    Button btn;
+
+    public void init() {
+        btn = new Button("Click Me!");
+        btn.setBounds(50, 50, 80, 30);  // Set position and size of the button
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Button clicked!");  // Action when button is clicked
+            }
+        });
+        add(btn);  // Add button to the applet
+    }
+}
+```
+
+📝 **Explanation of the Button Applet:**  
+- `Button`: Creates a button with the label `"Click Me!"`.  
+- `addActionListener()`: Adds an action listener to the button, which listens for the button click and performs an action (in this case, printing a message).  
+- `add()`: Adds the button to the applet’s display area.  
+
+---
+
+🔧 **How to Run Java Applets:**  
+To run a Java applet, follow these steps:  
+
+1. **Compile the Applet:**  
+   - Save your Java applet code in a file named `HelloWorldApplet.java`.  
+   - Open the terminal or command prompt, navigate to the directory where the file is saved, and compile the applet using:  
+     ```
+     javac HelloWorldApplet.java
+     ```  
+
+2. **Run the Applet:**  
+   - You can use the `appletviewer` command to run the applet without a browser.  
+   - Create an HTML file as shown earlier.  
+   - Use the following command to run the applet:  
+     ```
+     appletviewer HelloWorldApplet.html
+     ```  
+
+3. **Running in a Browser:**  
+   - Older browsers had Java support, but modern browsers (like Chrome, Firefox, and Edge) no longer support Java applets due to security issues. It's recommended to use the `appletviewer` tool or migrate to modern technologies like JavaScript for web-based interactivity.  
+
+---
+
+⚠️ **Important Notes:**  
+- **Security Concerns:** Java applets have been deprecated due to security vulnerabilities, and most modern browsers no longer support them. It is recommended to move away from using applets and consider alternatives like JavaFX or JavaScript for web-based interactions.  
+- **Java Web Start:** Another technology for running Java applications on the web, which was introduced to replace applets, has also been discontinued as of JDK 9.  
+
+---
+
+⚡ **Conclusion:**  
+- Java Applets were once a popular way to create interactive content for web pages but are now obsolete due to security concerns and lack of browser support.  
+- The life cycle of applets includes initialization, starting, stopping, and destroying processes.  
+- Modern web technologies like HTML5, JavaScript, and JavaFX have largely replaced applets for web-based applications.  
+
 ________________________________________
