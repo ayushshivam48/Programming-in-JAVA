@@ -8,7 +8,7 @@ Java is a high-level, object-oriented, platform-independent programming language
 The philosophy behind Java:
 "Write Once, Run Anywhere" (WORA) – meaning you can write Java code once and run it on any platform that supports Java without needing to recompile.
 
-________________________________________
+---
 
 ### 🔧 Key Features of Java
 
@@ -23,7 +23,7 @@ ________________________________________
 | ⚙️ High Performance | Just-In-Time (JIT) compiler improves performance                            |
 | 🌍 Distributed      | Useful for distributed computing (e.g., RMI, EJB)                           |
 
-________________________________________
+---
 
 ### ⚙️ How Java Works
 1. Source Code (.java) → Written by the programmer
@@ -32,89 +32,94 @@ ________________________________________
 
 Java Code → Compiled → Bytecode → JVM → Output
 
-________________________________________
+---
 
 ### 🧱 Basic Java Program Example
 
-
+```java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
 }
-
+```
 Explanation:
 •	public class HelloWorld → Class declaration
 •	public static void main → Entry point of the program
 •	System.out.println() → Prints output to console
 
-________________________________________
+---
 
 🧠 Java Editions
 1.	Java SE (Standard Edition) – for core functionality (apps, desktop)
 2.	Java EE (Enterprise Edition) – for web and enterprise apps (now Jakarta EE)
 3.	Java ME (Micro Edition) – for embedded and mobile devices
 
----
+________________________________________
 
 ## Java Programming Steps
 ### 🔟 10 Essential Steps in Java Programming
-________________________________________
+---
 ### 1. Install Java Development Kit (JDK)
 Download and install the JDK. It includes:  
 •	Java Compiler (javac)  
 •	Java Runtime Environment (JRE)  
 •	Java Virtual Machine (JVM)  
-________________________________________
+
+---
+
 ### 2. Set Up Environment Variables (Optional but useful)
 Add the `bin` folder of your JDK to the system PATH so you can use `javac` and `java` from any terminal/command prompt.  
-________________________________________
+
+---
+
 ### 3. Write the Java Code
 Use any text editor (Notepad, VS Code, IntelliJ IDEA, etc.)  
 
 **Example (HelloWorld.java):**
-
+```java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, Java!");
     }
 }
+```
 
-________________________________________
+---
 
 ### 4. Save the File
 • Save with `.java` extension  
 • Filename must match the public class name (e.g., `HelloWorld.java`)  
 
-________________________________________
+---
 
 ### 5. Open Command Prompt / Terminal
 Navigate to the folder where your `.java` file is saved.  
 
-________________________________________
+---
 
 ### 6. Compile the Code
 Use:  
-
+```java
 javac HelloWorld.java
-
+```
 ✅ If successful, this creates a `HelloWorld.class` bytecode file.
 
-________________________________________
+---
 
 ### 7. Run the Program
 **Use:**
-
+```java
 java HelloWorld
-
+```
 ⏩ This runs the `.class` file using the Java Virtual Machine (JVM).
 
 🖨️ **Output:**
-
+```
 Hello, Java!
+```
 
-
-________________________________________
+---
 
 ### 8. Debug if Needed
 If you encounter errors:
@@ -127,7 +132,7 @@ Common error types:
 - Runtime errors (NullPointerException)
 - Logical errors (incorrect program logic)
 
-________________________________________
+---
 
 ### 9. Repeat & Practice
 Essential Java concepts to practice:
@@ -142,7 +147,7 @@ Practice project ideas:
 - Todo list manager
 - Simple banking system
 
-________________________________________
+---
 
 ### 10. (Optional) Use an IDE
 **Popular Java IDEs:**
@@ -166,7 +171,7 @@ ________________________________________
 
 Java programming involves various tools that support the full development lifecycle — from writing and compiling code to testing, debugging, and deploying applications. These tools boost productivity, manage complexity, and help ensure reliability.
 
-________________________________________
+---
 
 ### 🔧 1. Core Development Tools (Included in JDK)
 These are essential tools provided with the Java Development Kit (JDK):
@@ -181,7 +186,7 @@ These are essential tools provided with the Java Development Kit (JDK):
 
 🟢 **Importance**: These tools form the foundation of Java program development, from writing code to distributing it.
 
-________________________________________
+---
 
 ### 💻 2. IDEs (Integrated Development Environments)
 Modern IDEs make Java programming more efficient and user-friendly.
@@ -195,7 +200,7 @@ Modern IDEs make Java programming more efficient and user-friendly.
 
 🟢 **Importance**: IDEs help you write, debug, and run Java programs with features like autocomplete, error hints, and integrated terminals.
 
-________________________________________
+---
 
 ### ⚙️ 3. Build Tools
 Build tools automate tasks like compiling code, managing libraries, and packaging applications.
@@ -208,7 +213,7 @@ Build tools automate tasks like compiling code, managing libraries, and packagin
 
 🟢 **Importance**: These tools make project builds repeatable and easy, especially when many libraries and files are involved.
 
-________________________________________
+---
 
 ### 🧪 4. Testing Tools
 Testing is vital to ensure your application behaves correctly.
@@ -221,7 +226,7 @@ Testing is vital to ensure your application behaves correctly.
 
 🟢 **Importance**: Helps catch bugs early and maintain code quality.
 
-________________________________________
+---
 
 ### 🖥️ 5. GUI Development Tools
 Used to create desktop-based graphical user interfaces (GUIs).
@@ -233,7 +238,7 @@ Used to create desktop-based graphical user interfaces (GUIs).
 
 🟢 **Importance**: Enables you to build interactive, user-friendly applications.
 
-________________________________________
+---
 
 ### 🌐 6. Web & Enterprise Tools
 Used for creating scalable web apps and enterprise software.
@@ -246,7 +251,7 @@ Used for creating scalable web apps and enterprise software.
 
 🟢 **Importance**: These tools power modern web applications and enterprise-grade systems.
 
-________________________________________
+---
 
 ### 🧠 How These Tools Work in a Java Project (Step-by-Step)
 1. **Write Code** – In an IDE like IntelliJ or Eclipse  
@@ -258,7 +263,7 @@ ________________________________________
 7. **Package App** – With jar or Maven to distribute  
 8. **Deploy/Run App** – On servers like Apache Tomcat or in a JAR file  
 
-________________________________________
+---
 
 ### 🧩 Summary Table
 
@@ -280,7 +285,7 @@ A Java Applet is a small Java program that is embedded in a web page and runs in
 
 ⚠️ **Note**: Applets were widely used in the past for web-based interactive programs (like animations or calculators), but they are now obsolete due to modern web technologies and browser security restrictions.
 
-________________________________________
+---
 
 ### 🧱 Key Features of Java Applets
 - GUI-based Java programs that run inside browsers
@@ -288,7 +293,7 @@ ________________________________________
 - Can display graphics, handle events, and interact with the user
 - No `main()` method — they use lifecycle methods
 
-________________________________________
+---
 
 ### 🔄 Applet Lifecycle Methods
 Java applets have predefined lifecycle methods:
@@ -301,10 +306,10 @@ Java applets have predefined lifecycle methods:
 | `destroy()`       | Called when the applet is removed from memory                              |
 | `paint(Graphics g)` | Called to draw content (text, shapes, etc.) on the screen                 |
 
-________________________________________
+---
 
 ### 🧑‍💻 Example: A Simple Java Applet
-
+```java
 import java.applet.Applet;
 import java.awt.Graphics;
 
@@ -315,31 +320,38 @@ public class HelloApplet extends Applet {
         g.drawString("Hello from Java Applet!", 50, 50);
     }
 }
+```
 
-________________________________________
+---
 
 ### ✅ Steps to Run a Java Applet
 
 1. **Save** as `HelloApplet.java`
 2. **Compile**:
-
+```java
    javac HelloApplet.java
+```
 
 3.	Create an HTML file (HelloApplet.html):
+```html
 <html>
 <body>
     <applet code="HelloApplet.class" width="300" height="100"></applet>
 </body>
 </html>
+```
 
 4.	Run in Applet Viewer:
+```java
 appletviewer HelloApplet.html
+```
 
 🛑 Modern browsers no longer support applets. Use `appletviewer` from the JDK for testing:
 
+```java
 appletviewer YourApplet.html
-
-________________________________________
+```
+---
 
 ### 📋 Historical Use Cases of Java Applets
 
@@ -350,7 +362,7 @@ ________________________________________
 - **Visualizations**  
   Interactive diagrams, charts, and data visualizations
 
-________________________________________
+---
 
 ### ❌ Reasons for Applet Deprecation
 
@@ -360,7 +372,7 @@ ________________________________________
 | Security Vulnerabilities | Sandboxing limitations | Modern security frameworks |
 | Technology Obsolescence | Replaced by better alternatives | HTML5, JavaScript, WebAssembly |
 
-________________________________________
+---
 
 ### ✅ Modern Replacement Technologies
 
@@ -371,7 +383,7 @@ ________________________________________
 | Backend Services | Spring Boot | Microservices architecture |
 | Animations/Graphics | Canvas/WebGL | Hardware-accelerated rendering |
 
-________________________________________
+---
 
 ### 📌 Java Applet Technical Summary
 
@@ -403,6 +415,7 @@ ________________________________________
 
 ### 🧑‍💻 Java Example: Encapsulation
 
+```java
 public class Student {
    
     // Private data members
@@ -433,11 +446,12 @@ public class Student {
         }
     }
 }
-
+```
 ________________________________________
 
 ### Usage Example:
 
+```java
 public class Main {
     
     public static void main(String[] args) {
@@ -449,8 +463,8 @@ public class Main {
         System.out.println("Age: " + s.getAge());
     }
 }
-
-________________________________________
+```
+---
 
 ### 🎯 Why is Encapsulation Important?
 
@@ -462,7 +476,7 @@ ________________________________________
 | ✅ Control        | You can add validation logic in setter methods                              |
 | ✅ Reusability    | Easily maintain and reuse encapsulated classes in other programs            |
 
-________________________________________
+---
 
 ### 🏁 Real-Life Example
 **ATM Machine Analogy**:
@@ -472,7 +486,7 @@ ________________________________________
 
 *This demonstrates encapsulation in real-world systems!*
 
-________________________________________
+---
 
 ### 🔁 Summary of Key Terms
 
@@ -539,10 +553,12 @@ URL url = new URL("https://api.example.com");
 - Enhanced responsiveness in GUI applications
 
 // Example: Creating threads
+```java
 Thread thread = new Thread(() -> {
     System.out.println("Running in separate thread");
 });
 thread.start();
+```
 
 ### 🔹 6. Essential Java Tools & IDEs
 
@@ -571,8 +587,10 @@ thread.start();
 
 
 #### Example: Compiling and running Java
+```java
 javac Main.java
 java Main
+```
 
 ### 🔹 8. Thriving Java Community & Industry Adoption
 
@@ -594,7 +612,7 @@ java Main
 - 💡 **Java User Groups (JUGs)** - 500+ active chapters worldwide
 - 🛠️ **OpenJDK** - Community-driven Java development
 
-________________________________________
+---
 
 ### 🔹 9. Java Career Pathways
 
@@ -617,7 +635,7 @@ ________________________________________
 3. Spring Professional Certification
 4. AWS Certified Developer (Java focus)
 
-________________________________________
+---
 
 ### 🚀 Java in 2024: Why It Matters
 
@@ -646,40 +664,47 @@ In Java, the `static` keyword means that a member belongs to the class rather th
 ### ✅ Java Static Scope Rules  
 
 #### 1. Static Variables (Class Variables)  
-`class Example {`  
-`    static int count = 0;  // static variable`  
-`    Example() {`  
-`        count++;`  
-`    }`  
-`}`  
+
+```java
+class Example {  
+    static int count = 0;  // static variable  
+    Example() {
+        count++;  
+    }  
+}  
+```
 
 - Declared using the `static` keyword  
 - Shared among all class instances  
 - Initialized once at class loading  
 
 #### 2. Static Methods  
-`class Test {`  
-`    static int x = 10;`  
-`    static void show() {`  
-`        System.out.println("x = " + x);  // Allowed`  
-`        // System.out.println("y = " + y);  // ❌ Not allowed`  
-`    }`  
-`    int y = 5;`  
-`}`  
+```java
+class Test { 
+    static int x = 10;  
+    static void show() {  
+        System.out.println("x = " + x);  // Allowed  
+        // System.out.println("y = " + y);  // ❌ Not allowed  
+    }
+    int y = 5;  
+}
+```
 
 - Belong to the class, not the object  
 - Can access only static data directly  
 - Cannot use `this` keyword  
 
-#### 3. Static Blocks  
-`class Hello {`  
-`    static {`  
-`        System.out.println("Static block executed");`  
-`    }`  
-`    public static void main(String[] args) {`  
-`        System.out.println("Main method executed");`  
-`    }`  
-`}`  
+#### 3. Static Blocks
+```java
+class Hello {  
+    static {  
+        System.out.println("Static block executed");  
+    }
+    public static void main(String[] args) {  
+        System.out.println("Main method executed");  
+    }
+}
+```
 
 - Executes when class is loaded  
 - Runs before main method  
@@ -705,16 +730,18 @@ In Java, the `static` keyword means that a member belongs to the class rather th
 ---
 
 ### 🧠 Real-Life Example  
-`class Student {`  
-`    static String college = "ABC University";`  
-`    String name;`  
-`    Student(String name) {`  
-`        this.name = name;`  
-`    }`  
-`    void display() {`  
-`        System.out.println(name + " studies at " + college);`  
-`    }`  
-`}`  
+```java
+class Student {  
+    static String college = "ABC University";  
+    String name;
+    Student(String name) {  
+        this.name = name;  
+    }
+    void display() {  
+        System.out.println(name + " studies at " + college);  
+    }
+}
+```
 
 Key Points:  
 - `college` is shared by all students (static)  
@@ -737,7 +764,7 @@ Inheritance is a mechanism in Java where one class (child/subclass) can inherit 
 ---
 
 ### 🔹 Syntax of Inheritance  
-```
+```java
 class Superclass {
     // fields and methods
 }
@@ -749,7 +776,7 @@ class Subclass extends Superclass {
 ---
 
 ### 🔍 Example  
-```
+```java
 class Vehicle {
     void startEngine() {
         System.out.println("Engine started");
@@ -783,7 +810,7 @@ Car is driving
 One class inherits from one superclass.  
 
 **Example:**  
-```
+```java
 class Animal {
     void eat() {
         System.out.println("Animal eats food");
@@ -800,7 +827,7 @@ class Dog extends Animal {
 A class is derived from a class that is also derived from another class.  
 
 **Example:**  
-```
+```java
 class Grandparent {
     void heritage() {
         System.out.println("Grandparent's heritage");
@@ -822,7 +849,7 @@ class Child extends Parent {
 Multiple classes inherit from the same parent class.  
 
 **Example:**  
-```
+```java
 class Animal {
     void eat() {
         System.out.println("Animal eats");
@@ -844,7 +871,7 @@ class Cat extends Animal {
 Java supports multiple inheritance using interfaces.  
 
 **Example:**  
-```
+```java
 interface Printable {
     void print();
 }
@@ -865,7 +892,7 @@ class Document implements Printable, Showable {
 Combination of inheritance types, achieved via interfaces.  
 
 **Example:**  
-```
+```java
 interface A {
     void methodA();
 }
@@ -893,7 +920,7 @@ class D extends C implements B {
 Java avoids multiple inheritance with classes to prevent the Diamond Problem.  
 
 **Problem Example:**  
-```
+```java
 class A {
     void show() { System.out.println("A"); }
 }
@@ -903,7 +930,7 @@ class B {
 // class C extends A, B { } // Not allowed!
 ```
 
-**Solution:** Use interfaces instead!
+> **Solution:** Use interfaces instead!
 
 ---
 
@@ -956,7 +983,7 @@ Information hiding in Java is achieved using:
 
 ### ✅ Example  
 
-```
+```java
 class Employee {
     // Private data members (hidden from outside)
     private String name;
@@ -1063,7 +1090,7 @@ A package in Java is a namespace that organizes classes and interfaces in a logi
 ### ✅ How to Create and Use a Package
 
 #### Step 1: Create a Package
-```
+```java
 package MyPackage;
 
 public class Addition {
@@ -1075,7 +1102,7 @@ public class Addition {
 (Save as `MyPackage/Addition.java`)
 
 #### Step 2: Use the Package
-```
+```java
 import MyPackage.Addition;
 
 public class Main {
@@ -1089,7 +1116,7 @@ public class Main {
 (Save as `Main.java`)
 
 **Compilation & Execution:**
-```
+```java
 javac MyPackage/Addition.java
 javac Main.java
 java Main
@@ -1158,7 +1185,7 @@ An interface in Java is a blueprint of a class that contains abstract methods an
 ---
 
 ### 🔧 Syntax
-```
+```java
 interface InterfaceName {
     // Constant
     int VALUE = 100;
@@ -1183,7 +1210,7 @@ interface InterfaceName {
 ### 🧪 Code Example
 
 #### 🔹 Vehicle Interface
-```
+```java
 interface Vehicle {
     void start(); // Abstract method
     void stop();  // Abstract method
@@ -1199,7 +1226,7 @@ interface Vehicle {
 ```
 
 #### 🔹 Car Implementation
-```
+```java
 class Car implements Vehicle {
     public void start() {
         System.out.println("Car starting...");
@@ -1217,7 +1244,7 @@ class Car implements Vehicle {
 ```
 
 #### 🔹 Main Class
-```
+```java
 public class Main {
     public static void main(String[] args) {
         Vehicle myCar = new Car();
@@ -1240,7 +1267,7 @@ AutoMobiles Ltd.
 ---
 
 ### 🧠 Real-life Example
-```
+```java
 interface USBDevice {
     void connect();
 }
@@ -1982,7 +2009,7 @@ public class HelloWorldApplet extends Applet {
 ---
 
 📊 **HTML Code to Embed the Applet:**  
-You need an HTML page to embed the applet. Here's how you can do that:  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -2006,7 +2033,7 @@ You need an HTML page to embed the applet. Here's how you can do that:
 ---
 
 🧑‍💻 **Java Applet with Interactivity:**  
-Here's an example of a Java applet with a simple interactive component—a button.  
+
 ```java
 import java.applet.Applet;
 import java.awt.Button;
