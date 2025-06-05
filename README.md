@@ -2302,3 +2302,192 @@ public class AWTGraphics extends Frame {
 AWT (Abstract Window Toolkit) provides the foundational tools for building graphical user interfaces in Java. Though it is largely replaced by Swing and JavaFX, it is still useful for understanding the core concepts of Java GUI development. AWT allows for creating windows, adding components, and handling user interactions, all of which are essential in building desktop applications in Java.    
 
 ________________________________________
+
+## AWT Programming
+
+The Abstract Window Toolkit (AWT) is a set of application programming interfaces (APIs) provided by Java to build graphical user interfaces (GUIs). It contains a collection of tools and libraries for creating windows, buttons, text boxes, and other interactive elements in Java applications.
+
+AWT was the original GUI framework for Java, though it has since been supplemented by Swing and JavaFX for more advanced graphical capabilities. Nevertheless, AWT is still widely used due to its simplicity and its ability to interact with native OS components.
+
+### 📚 Key Concepts in AWT:
+
+1. **Components:**
+   - AWT provides a set of components (buttons, text fields, checkboxes, etc.) that are used to build the user interface.
+   - These components are containers that can hold other components, like panels or frames.
+
+2. **Container:**
+   - Containers are used to hold components. The Frame and Panel are examples of containers in AWT.
+   - They are responsible for the layout management and adding components to the GUI.
+
+3. **Event Handling:**
+   - AWT allows interaction between the user and the GUI via events.
+   - Events can be handled by implementing event listeners (like ActionListener, MouseListener, etc.).
+
+4. **Layout Managers:**
+   - AWT provides layout managers to manage the arrangement of components inside a container. Examples include FlowLayout, GridLayout, and BorderLayout.
+
+5. **Graphics Class:**
+   - AWT provides a Graphics class for drawing shapes, lines, and images on the GUI.
+
+### 🧑‍💻 Basic Structure of an AWT Application:
+1. **Frame:** A top-level window with a title.
+2. **Component:** A button, text field, etc.
+3. **Event Handling:** Handling actions like button clicks.
+
+### 🧑‍💻 Example of an AWT Program:
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class AWTExample extends Frame {
+    // Constructor to set up the GUI components
+    AWTExample() {
+        // Setting the title of the frame
+        setTitle("AWT Example");
+
+        // Creating a button and setting its action
+        Button btn = new Button("Click Me");
+        btn.setBounds(50, 50, 100, 30); // Set button position and size
+
+        // Adding the button to the frame
+        add(btn);
+
+        // Event handling for the button
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Button Clicked!");
+            }
+        });
+
+        // Setting layout to null (absolute positioning)
+        setLayout(null);
+
+        // Setting frame size
+        setSize(400, 400);
+
+        // Making the frame visible
+        setVisible(true);
+    }
+
+    // Main method to run the application
+    public static void main(String[] args) {
+        new AWTExample(); // Creating an instance of AWTExample (frame)
+    }
+}
+```
+
+### 📝 Explanation of the AWT Example:
+1. **Frame Creation:**
+   - Frame is the top-level container (window) for the app.
+   - We create a Button component and add it to the frame.
+
+2. **Button and Event Handling:**
+   - We create a Button labeled "Click Me" and specify its position and size using setBounds().
+   - An ActionListener is added to the button, which listens for clicks. When clicked, a message is printed to the console.
+
+3. **Visibility and Layout:**
+   - We set the frame's layout to null to control component positioning manually (absolute positioning).
+   - setSize() specifies the window size, and setVisible(true) makes the frame visible.
+
+### 🧑‍💻 AWT Layout Managers
+AWT provides several built-in layout managers that define how components are arranged within containers. The common ones include:
+
+1. **FlowLayout:**
+   - Components are arranged in a left-to-right flow (like a line).
+   - Components will automatically wrap to the next line if the container's width is exceeded.
+   ```java
+   setLayout(new FlowLayout());
+   ```
+
+2. **BorderLayout:**
+   - The container is divided into five regions: North, South, East, West, and Center.
+   ```java
+   setLayout(new BorderLayout());
+   add(btn, BorderLayout.CENTER); // Place button in the center
+   ```
+
+3. **GridLayout:**
+   - A grid of rows and columns. Every component has the same size and is placed into the grid cells.
+   ```java
+   setLayout(new GridLayout(2, 2)); // 2 rows, 2 columns
+   ```
+
+4. **CardLayout:**
+   - Useful for creating tabbed panels or pages where only one component is visible at a time.
+   ```java
+   setLayout(new CardLayout());
+   ```
+
+### 🧑‍💻 AWT Event Handling Example:
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class AWTEventHandling extends Frame {
+    // Constructor for setting up GUI
+    AWTEventHandling() {
+        setTitle("AWT Event Handling");
+
+        // Create components
+        Button btn = new Button("Click Me");
+        btn.setBounds(50, 50, 100, 30);
+
+        // Register event listener for the button
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Action performed when the button is clicked
+                System.out.println("Button Clicked!");
+            }
+        });
+
+        // Add the button to the frame
+        add(btn);
+
+        setLayout(null);
+        setSize(400, 400);
+        setVisible(true);
+    }
+
+    // Main method to start the application
+    public static void main(String[] args) {
+        new AWTEventHandling(); // Create frame instance
+    }
+}
+```
+
+### 📝 Explanation of Event Handling:
+- **ActionListener:** This listener handles events generated by the button. When the button is clicked, the actionPerformed() method is triggered.
+- **Event Handling Process:**
+  - The event (button click) triggers a listener that performs an action (printing to the console).
+
+### ⚡ AWT Graphics Example:
+AWT also allows drawing graphics on the window using the Graphics class. Here's an example of drawing a rectangle:
+```java
+import java.awt.*;
+
+public class AWTGraphics extends Frame {
+    public void paint(Graphics g) {
+        g.setColor(Color.RED); // Set drawing color
+        g.fillRect(50, 50, 100, 100); // Draw a filled rectangle
+    }
+
+    public static void main(String[] args) {
+        AWTGraphics app = new AWTGraphics();
+        app.setSize(400, 400);
+        app.setVisible(true);
+    }
+}
+```
+
+### 📝 Explanation of Graphics:
+- **Graphics Object:** It allows drawing shapes such as rectangles, lines, text, and images.
+- **fillRect():** This method draws a filled rectangle with specified width and height at a given (x, y) position.
+
+### ⚠️ Important Considerations:
+- **Threading:** In AWT, the GUI components run on the Event Dispatch Thread (EDT). All GUI updates should be performed on the EDT to avoid concurrency issues.
+- **AWT vs. Swing:** While AWT is simpler, Swing (built on top of AWT) provides more flexible, rich, and cross-platform GUI components. Swing is typically preferred for modern Java GUI applications.
+
+### ⚡ Conclusion:
+AWT (Abstract Window Toolkit) provides the foundational tools for building graphical user interfaces in Java. Though it is largely replaced by Swing and JavaFX, it is still useful for understanding the core concepts of Java GUI development. AWT allows for creating windows, adding components, and handling user interactions, all of which are essential in building desktop applications in Java.
+
+________________________________________
