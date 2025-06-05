@@ -56,6 +56,7 @@ Explanation:
 3.	Java ME (Micro Edition) – for embedded and mobile devices
 
 ________________________________________
+________________________________________
 
 ## Java Programming Steps
 ### 🔟 10 Essential Steps in Java Programming
@@ -165,7 +166,7 @@ Practice project ideas:
 **Installation Tip:** For beginners, start with IntelliJ IDEA Community Edition
 
 ________________________________________
-
+________________________________________
 
 ## Java Tools and Resources
 
@@ -276,6 +277,7 @@ Used for creating scalable web apps and enterprise software.
 | GUI            | JavaFX, Swing                       | Build interfaces                    |
 | Web            | Spring Boot, Hibernate, Tomcat      | Web & database integration          |
 
+________________________________________
 ________________________________________
 
 ## Java Applet Programming
@@ -397,6 +399,7 @@ appletviewer YourApplet.html
 > **Important Note**: All applet-related APIs were removed in Java SE 17 (JEP 398). For historical reference only.
 
 ________________________________________
+________________________________________
 
 ## Encapsulation in Java
 
@@ -405,13 +408,12 @@ Encapsulation is the concept of wrapping data (variables) and code (methods) tog
 
 ✅ **Analogy**: Think of it like a capsule of medicine — everything is sealed inside and accessed in a controlled way.
 
-________________________________________
-
+---
 ### 🧠 Key Concepts of Encapsulation in Java:
 1. **Private Variables**: The class variables are declared as private
 2. **Public Getter and Setter Methods**: These methods are used to read and update private variables
 
-________________________________________
+---
 
 ### 🧑‍💻 Java Example: Encapsulation
 
@@ -447,7 +449,7 @@ public class Student {
     }
 }
 ```
-________________________________________
+---
 
 ### Usage Example:
 
@@ -500,7 +502,7 @@ public class Main {
 > **Note**: Encapsulation is one of the four fundamental OOP concepts, along with inheritance, polymorphism, and abstraction.
 
 ________________________________________
-
+________________________________________
 
 ## Java Programming Insights
 
@@ -653,6 +655,7 @@ java Main
 - Strong position in quantum computing research
 
 ________________________________________
+________________________________________
 
 ## Java Static Scope Rules  
 
@@ -749,7 +752,7 @@ Key Points:
 - Static members save memory when shared data is needed
 
 ________________________________________
-
+________________________________________
 
 ## Inheritance  
 
@@ -953,6 +956,7 @@ class B {
 - ✅ Easier maintainability and scalability
 
 ________________________________________
+________________________________________
 
 ## Information Hiding  
 
@@ -1061,6 +1065,7 @@ Key takeaways:
 - Information hiding makes your code more robust and maintainable
 
 ________________________________________
+________________________________________
 
 ## Packages in Java
 
@@ -1149,6 +1154,7 @@ This organization makes teamwork and maintenance more efficient!
 3. Use `import` statements to access package contents
 4. Keep related classes together in logical packages
 
+________________________________________
 ________________________________________
 
 ## Interface in Java
@@ -1302,6 +1308,7 @@ class Scanner implements USBDevice {
 - Static methods provide utility functions
 - Interfaces enable polymorphic behavior
 
+________________________________________
 ________________________________________
 
 ## Experience Handling
@@ -1458,7 +1465,7 @@ File reading operation completed.
 - Always make sure to close resources (like files or connections) in the `finally` block to avoid resource leaks.
 
 ________________________________________
-
+________________________________________
 
 ## Multithreading
 
@@ -1666,7 +1673,7 @@ Final count: 2000
 •	Thread Pooling and Executor Framework: Efficient management of multiple threads.
 
 ________________________________________
-
+________________________________________
 
 ## I-O Stream
 
@@ -1937,7 +1944,7 @@ public class ObjectStreamExample {
 •	Java provides a wide range of I/O classes, each designed for different types of data processing and storage operations.
 
 ________________________________________
-
+________________________________________
 
 ## Applet Programming
 Java applets are small applications that can be embedded in web pages. These programs are written in Java and are executed within a web browser or an applet viewer. While applets were once commonly used for adding interactive content to web pages, they have become obsolete with the rise of newer technologies like HTML5, JavaScript, and CSS. However, understanding applets can still be useful for legacy systems.
@@ -2098,7 +2105,7 @@ To run a Java applet, follow these steps:
 - Modern web technologies like HTML5, JavaScript, and JavaFX have largely replaced applets for web-based applications.  
 
 ________________________________________
-
+________________________________________
 
 ## AWT Programming  
 The Abstract Window Toolkit (AWT) is a set of application programming interfaces (APIs) provided by Java to build graphical user interfaces (GUIs). It contains a collection of tools and libraries for creating windows, buttons, text boxes, and other interactive elements in Java applications.  
@@ -2508,4 +2515,5 @@ public class AWTGraphics extends Frame {
 ### ⚡ Conclusion:
 AWT (Abstract Window Toolkit) provides the foundational tools for building graphical user interfaces in Java. Though it is largely replaced by Swing and JavaFX, it is still useful for understanding the core concepts of Java GUI development. AWT allows for creating windows, adding components, and handling user interactions, all of which are essential in building desktop applications in Java.
 
+________________________________________
 ________________________________________
