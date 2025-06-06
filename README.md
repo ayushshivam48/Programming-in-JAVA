@@ -2517,3 +2517,199 @@ AWT (Abstract Window Toolkit) provides the foundational tools for building graph
 
 ________________________________________
 ________________________________________
+
+## Swing Programming
+
+Swing is a part of Java's Abstract Window Toolkit (AWT) and is used to create graphical user interfaces (GUIs) for Java applications. Swing is an advanced version of AWT with many more features and a richer set of components. Unlike AWT, which relies on the native OS for GUI rendering, Swing is written entirely in Java, which means it is platform-independent and provides a consistent appearance across different operating systems.
+
+---
+
+### Key Features of Swing:
+- **Pluggable Look and Feel (PLAF):** Change the GUI appearance without modifying application logic
+- **Lightweight components:** Don't rely on OS-specific resources, providing consistent cross-platform experience
+- **Rich component set:** More sophisticated UI elements than AWT
+- **Customizable:** Extensive control over component appearance and behavior
+
+---
+
+### Key Components of Swing
+| Component | Description |
+|-----------|-------------|
+| `JFrame` | Main window container |
+| `JButton` | Clickable button |
+| `JLabel` | Text/image display |
+| `JTextField` | Single-line text input |
+| `JTextArea` | Multi-line text input |
+| `JComboBox` | Drop-down selection list |
+| `JPanel` | Container for grouping components |
+| `JRadioButton` | Single selection option |
+| `JCheckBox` | Multiple selection option |
+
+---
+
+### Swing vs AWT Comparison
+| Feature | AWT | Swing |
+|---------|-----|-------|
+| Rendering | Native OS | Pure Java |
+| Components | Heavyweight | Lightweight |
+| Look & Feel | OS-dependent | Consistent across platforms |
+| Customization | Limited | Extensive |
+| Performance | Faster | Slightly slower |
+
+---
+
+### Basic Swing Program Example
+```java
+import javax.swing.*;
+import java.awt.event.*;
+
+public class SwingExample extends JFrame {
+    
+    SwingExample() {
+        setTitle("Swing Example");
+        JButton button = new JButton("Click Me");
+        
+        button.addActionListener(e -> 
+            System.out.println("Button was clicked!"));
+        
+        setLayout(null);
+        button.setBounds(100, 100, 150, 30);
+        add(button);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 400);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new SwingExample();
+    }
+}
+```
+---
+
+### Swing Layout Managers
+1. **FlowLayout** (Default)
+   ```java
+   setLayout(new FlowLayout());
+   ```
+   - Left-to-right component flow
+   - Wraps to next line when space runs out
+
+2. **BorderLayout**
+   ```java
+   setLayout(new BorderLayout());
+   add(component, BorderLayout.CENTER);
+   ```
+   - Five regions: NORTH, SOUTH, EAST, WEST, CENTER
+
+3. **GridLayout**
+   ```java
+   setLayout(new GridLayout(2, 3)); // 2 rows, 3 columns
+   ```
+   - Equal-sized cells in grid pattern
+
+4. **BoxLayout**
+   ```java
+   setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+   ```
+   - Vertical or horizontal component arrangement
+
+### Event Handling in Swing
+```java
+JButton button = new JButton("Action");
+button.addActionListener(e -> {
+    // Handle button click
+});
+
+button.addMouseListener(new MouseAdapter() {
+    public void mouseClicked(MouseEvent e) {
+        // Handle mouse click
+    }
+});
+```
+---
+
+### Common Swing Components
+1. **JLabel**
+   ```java
+   JLabel label = new JLabel("Information", SwingConstants.CENTER);
+   ```
+
+2. **JTextField**
+   ```java
+   JTextField field = new JTextField(20); // 20 columns wide
+   ```
+
+3. **JTextArea**
+   ```java
+   JTextArea area = new JTextArea(5, 20); // 5 rows, 20 columns
+   JScrollPane scrollPane = new JScrollPane(area);
+   ```
+
+4. **JComboBox**
+   ```java
+   String[] options = {"Option 1", "Option 2"};
+   JComboBox<String> comboBox = new JComboBox<>(options);
+   ```
+
+5. **JCheckBox**
+   ```java
+   JCheckBox checkBox = new JCheckBox("I agree");
+   ```
+
+6. **JRadioButton**
+   ```java
+   ButtonGroup group = new ButtonGroup();
+   JRadioButton rb1 = new JRadioButton("Option 1");
+   JRadioButton rb2 = new JRadioButton("Option 2");
+   group.add(rb1);
+   group.add(rb2);
+   ```
+---
+
+### Changing Look and Feel
+```java
+try {
+    // Set Nimbus look and feel
+    UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+    
+    // Or use system default
+    // UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    
+    SwingUtilities.updateComponentTreeUI(frame); // Update existing frames
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+---
+
+### Best Practices
+1. Always execute Swing code on the Event Dispatch Thread (EDT):
+   ```java
+   SwingUtilities.invokeLater(() -> {
+       // GUI creation code here
+   });
+   ```
+
+2. Use model-view-controller (MVC) pattern for complex applications
+
+3. Consider using JavaFX for modern applications (Swing is legacy)
+
+---
+
+### Conclusion
+Swing provides:
+- Rich set of GUI components
+- Cross-platform consistency
+- Flexible layout management
+- Customizable appearance
+- Event-driven programming model
+
+While newer technologies like JavaFX exist, Swing remains widely used for:
+- Legacy applications
+- Simple desktop GUIs
+- Applications requiring mature, stable GUI components
+
+________________________________________
+________________________________________
