@@ -2713,3 +2713,206 @@ While newer technologies like JavaFX exist, Swing remains widely used for:
 
 ________________________________________
 ________________________________________
+
+## Networking with Java
+
+Java provides a rich set of libraries and APIs to develop network-based applications through the `java.net` package. This enables both high-level and low-level network communication for various applications including web servers, chat applications, and file transfer systems.
+
+### Key Concepts in Java Networking
+
+1. **Socket Programming**
+   - `Socket`: Primary communication endpoint
+   - `ServerSocket`: Listens for incoming requests
+   - Client socket connects to server socket
+
+2. **IP Address and Port**
+   - Unique IP identifies devices
+   - Port numbers identify applications
+
+3. **Client-Server Model**
+   - Client sends requests
+   - Server processes and responds
+
+### Important Classes in `java.net`
+
+| Class | Purpose |
+|-------|---------|
+| `Socket` | Client-side communication |
+| `ServerSocket` | Server-side connection listener |
+| `URL` | Web resource interaction |
+| `InetAddress` | IP address operations |
+
+### Socket Programming: Client-Server Example
+
+#### Server Code
+```java
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(1234);
+            System.out.println("Server started. Waiting for client...");
+            
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Client connected: " + clientSocket.getInetAddress());
+
+            // Communication streams
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+            String message = in.readLine();
+            System.out.println("Client message: " + message);
+            
+            out.println("Server response");
+            
+            // Cleanup
+            in.close();
+            out.close();
+            clientSocket.close();
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+#### Client Code
+```java
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) {
+        try {
+            Socket socket = new Socket("localhost", 1234);
+            System.out.println("Connected to server...");
+
+            // Communication streams
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(socket.getInputStream()));
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+            out.println("Hello Server!");
+            
+            String response = in.readLine();
+            System.out.println("Server response: " + response);
+            
+            // Cleanup
+            in.close();
+            out.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Multithreaded Server Example
+```java
+import java.io.*;
+import java.net.*;
+
+public class MultiClientServer {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(1234);
+            System.out.println("Server started. Waiting for clients...");
+
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("New client: " + clientSocket.getInetAddress());
+                new ClientHandler(clientSocket).start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class ClientHandler extends Thread {
+    private Socket clientSocket;
+
+    public ClientHandler(Socket socket) {
+        this.clientSocket = socket;
+    }
+
+    public void run() {
+        try {
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+            String message = in.readLine();
+            System.out.println("Client message: " + message);
+            
+            out.println("Server response");
+            
+            in.close();
+            out.close();
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### URL Handling Example
+```java
+import java.io.*;
+import java.net.*;
+
+public class URLExample {
+    public static void main(String[] args) {
+        try {
+            URL url = new URL("http://www.example.com");
+            URLConnection connection = url.openConnection();
+            
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(connection.getInputStream()));
+            
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
+            }
+            
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Key Takeaways
+
+1. **Socket Communication**
+   - TCP-based reliable communication
+   - Uses input/output streams
+   - Requires proper connection closing
+
+2. **Server Architecture**
+   - Single-threaded for simple cases
+   - Multi-threaded for concurrent clients
+   - Uses `ServerSocket.accept()`
+
+3. **Web Communication**
+   - `URL` class for web resources
+   - `URLConnection` for content access
+   - Stream-based data reading
+
+4. **Best Practices**
+   - Always close connections
+   - Handle exceptions properly
+   - Use threading for multiple clients
+   - Consider security aspects
+
+Java's networking capabilities provide a robust foundation for building various networked applications, from simple client-server systems to complex distributed applications. The platform-independent nature of Java makes these solutions work consistently across different operating systems.
+
+________________________________________
+________________________________________
