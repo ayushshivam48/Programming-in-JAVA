@@ -2992,13 +2992,13 @@ JDBC allows Java programs to:
 - Send SQL queries
 - Retrieve and process results
 - Update or delete records
-
+---
 ### 🔧 JDBC Architecture
 
 JDBC has two main layers:
 1. **JDBC API**: Provides the application-to-JDBC Manager connection.
 2. **JDBC Driver**: Handles the communication between JDBC Manager and the actual database.
-
+---
 ### 📚 Key Interfaces and Classes in JDBC
 
 | Interface/Class      | Description |
@@ -3008,7 +3008,7 @@ JDBC has two main layers:
 | `Statement`          | Used to execute simple SQL queries (no parameters) |
 | `PreparedStatement`  | Used to execute parameterized SQL queries |
 | `ResultSet`          | Holds the data retrieved from a SELECT query |
-
+---
 ### ⚙️ JDBC Steps (7-Step Process)
 
 1. Import the package
@@ -3018,7 +3018,7 @@ JDBC has two main layers:
 5. Execute the query
 6. Process results
 7. Close the connection
-
+---
 ### ✅ Example: Connect to MySQL Database
 
 Let's create a simple JDBC program that connects to a MySQL database and retrieves data from a table named students.
@@ -3070,7 +3070,7 @@ public class JdbcExample {
     }
 }
 ```
-
+---
 ### 🔄 Using PreparedStatement
 
 More secure and recommended for dynamic queries (helps prevent SQL injection):
@@ -3080,6 +3080,7 @@ PreparedStatement ps = con.prepareStatement("SELECT * FROM students WHERE age > 
 ps.setInt(1, 18);
 ResultSet rs = ps.executeQuery();
 ```
+---
 
 ### 💡 Common JDBC Drivers
 
@@ -3090,6 +3091,8 @@ ResultSet rs = ps.executeQuery();
 | PostgreSQL  | `org.postgresql.Driver`     |
 | SQLite      | `org.sqlite.JDBC`           |
 
+---
+
 ### 🧵 Best Practices
 
 - Always close Connection, Statement, and ResultSet objects
@@ -3097,6 +3100,8 @@ ResultSet rs = ps.executeQuery();
 - Prefer PreparedStatement over Statement
 - Handle exceptions gracefully with logging
 - Avoid hardcoding credentials—use configuration files
+
+---
 
 ### 🧠 Summary
 
