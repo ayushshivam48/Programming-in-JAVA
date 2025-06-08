@@ -3103,7 +3103,6 @@ ResultSet rs = ps.executeQuery();
 - JDBC provides a standard way to interact with relational databases using Java
 - You use DriverManager to connect, Statement/PreparedStatement to execute SQL, and ResultSet to handle results
 - JDBC can work with almost any database using the appropriate driver
-```
-
+  
 ________________________________________
 ________________________________________
