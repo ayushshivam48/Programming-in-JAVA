@@ -2982,3 +2982,128 @@ With Java's comprehensive networking API, you can create robust networked applic
 
 ________________________________________
 ________________________________________
+
+## JDBC (Java Database Connectivity)
+
+JDBC stands for Java Database Connectivity. It is an API (Application Programming Interface) provided by Java to connect and interact with relational databases like MySQL, Oracle, PostgreSQL, SQLite, etc.
+
+JDBC allows Java programs to:
+- Connect to a database
+- Send SQL queries
+- Retrieve and process results
+- Update or delete records
+
+### 🔧 JDBC Architecture
+
+JDBC has two main layers:
+1. **JDBC API**: Provides the application-to-JDBC Manager connection.
+2. **JDBC Driver**: Handles the communication between JDBC Manager and the actual database.
+
+### 📚 Key Interfaces and Classes in JDBC
+
+| Interface/Class      | Description |
+|----------------------|-------------|
+| `DriverManager`      | Manages JDBC drivers and establishes connection |
+| `Connection`         | Represents a connection to the database |
+| `Statement`          | Used to execute simple SQL queries (no parameters) |
+| `PreparedStatement`  | Used to execute parameterized SQL queries |
+| `ResultSet`          | Holds the data retrieved from a SELECT query |
+
+### ⚙️ JDBC Steps (7-Step Process)
+
+1. Import the package
+2. Register the driver
+3. Establish connection
+4. Create a statement
+5. Execute the query
+6. Process results
+7. Close the connection
+
+### ✅ Example: Connect to MySQL Database
+
+Let's create a simple JDBC program that connects to a MySQL database and retrieves data from a table named students.
+
+#### 📦 MySQL Table (students)
+```sql
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+```
+
+#### 💻 Java Code
+```java
+import java.sql.*;
+
+public class JdbcExample {
+    public static void main(String[] args) {
+        // Database URL, username and password
+        String url = "jdbc:mysql://localhost:3306/college";
+        String user = "root";
+        String password = "your_password"; // replace with your DB password
+
+        try {
+            // Step 1: Load the JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Step 2: Establish the connection
+            Connection con = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to the database!");
+            // Step 3: Create a Statement object
+            Statement stmt = con.createStatement();
+            // Step 4: Execute a query
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+            // Step 5: Process the result
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id"));
+                System.out.println("Name: " + rs.getString("name"));
+                System.out.println("Age: " + rs.getInt("age"));
+                System.out.println("-----------");
+            }
+            // Step 6: Close the connection
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### 🔄 Using PreparedStatement
+
+More secure and recommended for dynamic queries (helps prevent SQL injection):
+
+```java
+PreparedStatement ps = con.prepareStatement("SELECT * FROM students WHERE age > ?");
+ps.setInt(1, 18);
+ResultSet rs = ps.executeQuery();
+```
+
+### 💡 Common JDBC Drivers
+
+| Database    | Driver Class Name           |
+|-------------|-----------------------------|
+| MySQL       | `com.mysql.cj.jdbc.Driver`  |
+| Oracle      | `oracle.jdbc.driver.OracleDriver` |
+| PostgreSQL  | `org.postgresql.Driver`     |
+| SQLite      | `org.sqlite.JDBC`           |
+
+### 🧵 Best Practices
+
+- Always close Connection, Statement, and ResultSet objects
+- Use try-with-resources for automatic resource management (Java 7+)
+- Prefer PreparedStatement over Statement
+- Handle exceptions gracefully with logging
+- Avoid hardcoding credentials—use configuration files
+
+### 🧠 Summary
+
+- JDBC provides a standard way to interact with relational databases using Java
+- You use DriverManager to connect, Statement/PreparedStatement to execute SQL, and ResultSet to handle results
+- JDBC can work with almost any database using the appropriate driver
+```
+
+________________________________________
+________________________________________
