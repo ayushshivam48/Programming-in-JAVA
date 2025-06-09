@@ -3111,3 +3111,190 @@ ResultSet rs = ps.executeQuery();
   
 ________________________________________
 ________________________________________
+
+## Case Study: Library Management System in Java
+
+### 🧾 Objective:
+Design and develop a Java application to manage a library's records, including:
+- Adding new books
+- Issuing books to students
+- Returning books
+- Viewing all books and issued books
+
+---
+
+### 🧰 Tools Used:
+- Java (JDK 8+)
+- MySQL (for data storage)
+- JDBC (for DB connectivity)
+- Eclipse/NetBeans/IntelliJ (IDE)
+- Console-based UI (optional GUI using Swing)
+
+---
+
+### 🧱 Core Classes Used:
+1. Book (Encapsulation)
+2. Student (Encapsulation)
+3. Library (Main operations)
+4. DatabaseManager (Handles JDBC connection)
+5. LibraryInterface (Interface for rules)
+6. MainApp (Main driver class)
+
+---
+
+### 🧮 Database Tables:
+```sql
+CREATE TABLE books (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    quantity INT
+);
+
+CREATE TABLE issued_books (
+    book_id INT,
+    student_name VARCHAR(100),
+    issue_date DATE,
+    return_date DATE
+);
+```
+
+---
+
+### 📦 Sample Class: Book.java
+```java
+public class Book {
+    private int id;
+    private String title;
+    private String author;
+    private int quantity;
+
+    public Book(int id, String title, String author, int quantity) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.quantity = quantity;
+    }
+
+    // Getters and Setters
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public int getQuantity() { return quantity; }
+
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+}
+```
+
+---
+
+### 🔗 Sample Class: DatabaseManager.java
+```java
+import java.sql.*;
+
+public class DatabaseManager {
+    private static final String URL = "jdbc:mysql://localhost:3306/library";
+    private static final String USER = "root";
+    private static final String PASS = "your_password";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASS);
+    }
+}
+```
+
+---
+
+### 🧾 LibraryInterface.java
+```java
+public interface LibraryInterface {
+    void addBook(Book book);
+    void issueBook(int bookId, String studentName);
+    void returnBook(int bookId, String studentName);
+    void viewBooks();
+    void viewIssuedBooks();
+}
+```
+
+---
+
+### 🏛️ Library.java
+```java
+import java.sql.*;
+
+public class Library implements LibraryInterface {
+
+    public void addBook(Book book) {
+        try (Connection con = DatabaseManager.getConnection()) {
+            String query = "INSERT INTO books(title, author, quantity) VALUES (?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, book.getTitle());
+            ps.setString(2, book.getAuthor());
+            ps.setInt(3, book.getQuantity());
+            ps.executeUpdate();
+            System.out.println("Book added successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Other methods (issueBook, returnBook, viewBooks, viewIssuedBooks)
+    // ... [rest of the methods from original content]
+}
+```
+
+---
+
+### 🚀 MainApp.java
+```java
+import java.util.Scanner;
+
+public class MainApp {
+    public static void main(String[] args) {
+        Library lib = new Library();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n1. Add Book\n2. Issue Book\n3. Return Book\n4. View All Books\n5. View Issued Books\n6. Exit");
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+            switch (choice) {
+                case 1:
+                    // Add book logic
+                    break;
+                case 2:
+                    // Issue book logic
+                    break;
+                case 3:
+                    // Return book logic
+                    break;
+                case 4:
+                    lib.viewBooks();
+                    break;
+                case 5:
+                    lib.viewIssuedBooks();
+                    break;
+                case 6:
+                    System.out.println("Exiting...");
+                    System.exit(0);
+            }
+        }
+    }
+}
+```
+
+---
+
+### ✅ Concepts Covered
+
+| Concept            | Where Used                     |
+|--------------------|--------------------------------|
+| Encapsulation      | Book and Student classes       |
+| Inheritance        | Extend Exception (optional)    |
+| Interface          | LibraryInterface               |
+| JDBC               | DatabaseManager and Library    |
+| Exception Handling | try-catch blocks               |
+| I/O                | Scanner and System.out         |
+
+
+________________________________________
+________________________________________
