@@ -1,3 +1,4 @@
+```java
 import java.util.Scanner;
 
 public class W01_P1 {
@@ -12,3 +13,4 @@ if (number % 2 == 0) {
 in.close();
     }
 }
+```
