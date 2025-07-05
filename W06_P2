@@ -1,1 +1,18 @@
-
+class ThreadRun implements Runnable {
+    public void run(){ 
+        System.out.print("Thread using Runnable interface."); 
+    } 
+}
+// Create main class W06_P2 with main() method and appropriate statements in it
+public class W06_P2 {
+public static void main(String[] args) {
+    // Create an instance of the ThreadRun class
+    ThreadRun runnable = new ThreadRun();
+    
+    // Create a Thread object and pass the runnable instance to it
+    Thread thread = new Thread(runnable);
+    
+    // Start the thread
+    thread.start();
+}
+}
