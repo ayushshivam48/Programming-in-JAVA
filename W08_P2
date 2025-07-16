@@ -1,1 +1,21 @@
+import java.util.Scanner;
 
+public class W08_P2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+       
+        int n = scanner.nextInt();
+  long factorial = 1; // Use long to handle larger factorials
+        
+        // Step 5: Use a loop to calculate the factorial
+        for (int i = 1; i <= n; i++) {
+            // Step 5a: Multiply the current value of factorial by i
+            factorial *= i;
+        }
+        
+        // Step 6: Output the factorial result without any additional text
+        System.out.println(factorial);
+scanner.close();
+    }
+}
