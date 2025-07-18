@@ -1,1 +1,33 @@
+import java.util.Scanner;
 
+public class W08_P4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        int number = scanner.nextInt();
+  boolean isPrime = true;
+        
+        // Step 5: Check if the number is less than 2
+        if (number < 2) {
+            isPrime = false; // Numbers less than 2 are not prime
+        } else {
+            // Step 6: Check for factors from 2 to the square root of the number
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                // Step 6a: If the number is divisible by i, it is not prime
+                if (number % i == 0) {
+                    isPrime = false;
+                    break; // Exit the loop as we found a factor
+                }
+            }
+        }
+        
+        // Step 7: Output whether the number is prime or not
+        if (isPrime) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+scanner.close();
+    }
+}
