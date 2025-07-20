@@ -1,1 +1,41 @@
+import java.util.Scanner;
+public class W09_P1{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+        // Declare the 5x5 2D array to store the input
+        int[][] array = new int[5][5];
+        
+        // Input 2D Array row-wise
+        for (int i = 0; i < 5; i++) {
+            String line = sc.next(); // Read the entire line as a string
+            
+            if (line.length() != 5 || !line.matches("[01]{5}")) {
+                i--; // Repeat this row's input
+                continue;
+            }
+            
+            for (int j = 0; j < 5; j++) {
+                array[i][j] = line.charAt(j) - '0'; // Convert character to integer
+            }
+        }
+        
+        // Perform the Flip-Flop Operation (Flip the bits)
+        int[][] flipFlopArray = new int[5][5];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                // Flip the bits according to the pattern: set last column to 0, others to 1
+                flipFlopArray[i][j] = (j == 4) ? 0 : 1;
+            }
+        }
+        
+        // Output the 2D Flip-Flop Array
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(flipFlopArray[i][j]);
+            }
+            System.out.println(); // New line after each row
+        }
 
+        sc.close(); // Close the scanner
+} 
+} 
