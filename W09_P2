@@ -1,1 +1,34 @@
+import java.util.Scanner;
+public class W09_P2{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+char[][] array = new char[5][5]; // Define a 5x5 character array
 
+        // Taking input for the 5x5 character matrix
+        for (int i = 0; i < 5; i++) {
+            String line = sc.next(); // Read each row as a single string
+            for (int j = 0; j < 5; j++) {
+                array[i][j] = line.charAt(j); // Store characters in the array
+            }
+        }
+
+        // Performing the side-by-side reflection
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5 / 2; j++) { // Swap elements to mirror
+                char temp = array[i][j];
+                array[i][j] = array[i][4 - j];
+                array[i][4 - j] = temp;
+            }
+        }
+
+        // Printing the mirrored matrix
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(array[i][j]);
+            }
+            System.out.println(); // Move to the next line
+        }
+
+        sc.close();
+} 
+} 
