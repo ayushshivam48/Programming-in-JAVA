@@ -1,1 +1,84 @@
+import java.util.Scanner;
+public class W09_P4{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+StringBuilder mappedInput = new StringBuilder();
 
+        // Convert each character using gui_map function
+        for (char ch : input.toCharArray()) {
+            mappedInput.append(gui_map(ch));
+        }
+
+        // Extract numbers and operator
+        String expression = mappedInput.toString(); // Example: "6*3="
+        double num1 = 0, num2 = 0;
+        char operator = ' ';
+        boolean operatorFound = false;
+
+        StringBuilder number = new StringBuilder();
+        
+        for (char ch : expression.toCharArray()) {
+            if (Character.isDigit(ch) || ch == '.') { // If it's part of a number
+                number.append(ch);
+            } else if (ch == '=' || ch == ' ') { // Stop processing at '='
+                break;
+            } else { // If it's an operator
+                num1 = Double.parseDouble(number.toString());
+                number = new StringBuilder(); // Reset for second number
+                operator = ch;
+                operatorFound = true;
+            }
+        }
+
+        // Assign second number
+        if (operatorFound && number.length() > 0) {
+            num2 = Double.parseDouble(number.toString());
+        }
+
+        double result = 0;
+
+        // Perform the operation
+        switch (operator) {
+            case '+': result = num1 + num2; break;
+            case '-': result = num1 - num2; break;
+            case 'X': result = num1 * num2; break;
+            case '/': result = num1 / num2; break;
+        }
+
+        // Print the result
+        System.out.println(result);
+
+        sc.close();
+}// The main() method ends here.
+	
+// A method that takes a character as input and returns the corresponding GUI character	
+	static char gui_map(char in){
+		char out = 'N';// N = Null/Empty
+		char gm[][]={{'a','.'}
+					,{'b','0'}
+					,{'c','='}
+					,{'d','+'}
+					,{'e','1'}
+					,{'f','2'}
+					,{'g','3'}
+					,{'h','-'}
+					,{'i','4'}
+					,{'j','5'}
+					,{'k','6'}
+					,{'l','X'}
+					,{'m','7'}
+					,{'n','8'}
+					,{'o','9'}
+					,{'p','/'}};
+					
+		// Checking for maps
+		for(int i=0; i<gm.length; i++){
+			if(gm[i][0]==in){
+				out=gm[i][1];
+				break;
+			}
+		}
+		return out;
+	}
+}
