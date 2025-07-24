@@ -1,1 +1,38 @@
+import java.util.Scanner;
+public class W09_P5{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine(); // Read as string, e.g., 5+6
+int num1 = 0, num2 = 0;
+        char operator = ' ';
 
+        // Find the operator position
+        for (char ch : input.toCharArray()) {
+            if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+                operator = ch;
+                String[] parts = input.split("\\" + operator);
+                num1 = Integer.parseInt(parts[0].trim());
+                num2 = Integer.parseInt(parts[1].trim());
+                break;
+            }
+        }
+
+        double result = 0;
+
+        // Perform the operation
+        switch (operator) {
+            case '+': result = num1 + num2; break;
+            case '-': result = num1 - num2; break;
+            case '*': result = num1 * num2; break;
+            case '/': result = (double) num1 / num2; break;
+        }
+
+        // Round the result
+        long roundedResult = Math.round(result);
+
+        // Print formatted output without extra spaces
+        System.out.println(num1 + "" + operator + "" + num2 + " = " + roundedResult);
+
+        sc.close();
+}
+}
