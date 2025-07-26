@@ -1,1 +1,17 @@
+import java.sql.*;  // Import required for JDBC classes
 
+public class W10_P2 {
+    public static void main(String[] args) {
+        try {
+            // We will attempt to load the SQLite JDBC driver class.
+            // If successful, we'll print true.
+            // If the driver class isn't available, we'll catch the error and print false.
+Class.forName("org.sqlite.JDBC");
+// If the driver loads successfully, this line will execute.
+            System.out.println(true);
+        } catch (Exception e) {
+            // If there is any error in loading the driver, this line will execute.
+            System.out.println(false);
+        }
+    }
+}
