@@ -1,1 +1,41 @@
+import java.util.Scanner;
 
+public class W12_P2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read a single character input representing a calculator function key
+        char key = sc.next().charAt(0);
+System.out.println(mapFunction(key)); // Call the function-mapping method and print the result
+
+/*
+Explanation:
+- The method mapFunction receives a calculator key as input and returns its corresponding function name.
+- We pass the user input 'key' to this method and print the returned string.
+
+Final Note:
+This task demonstrates how programs convert low-level inputs (like characters) into meaningful user-facing actions.
+Although the solution involves only one line of code, it ties together your understanding of method usage, return types, and function mapping.
+Reaching this final stage of the course reflects consistent effort and growth.
+We encourage you to explore how each helper method contributes to the program's clarity and structure.
+Well done on completing Week 12.
+*/
+sc.close();
+    }
+
+    // Helper method that maps each calculator key to its function name
+    public static String mapFunction(char key) {
+        switch (key) {
+            case '+': return "Addition";
+            case '-': return "Subtraction";
+            case '*': return "Multiplication";
+            case '/': return "Division";
+            case 'R': return "Square Root";
+            case 'S': return "Square";
+            case 'F': return "Reciprocal";
+            case '=': return "Equals";
+            case 'C': return "Clear";
+            default: return "Unknown Function";
+        }
+    }
+}
